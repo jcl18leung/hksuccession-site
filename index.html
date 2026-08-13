@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Second Wind | Hong Kong Business Succession & M&A</title>
+  <meta
+    name="description"
+    content="Second Wind helps established Hong Kong business owners prepare for retirement, position their companies for sale, and connect with credible next-generation buyers."
+  />
+  <style>
+    :root {
+      --navy: #0b1420;
+      --navy-soft: #101d2a;
+      --navy-light: #172635;
+      --cream: #f2ecdf;
+      --cream-soft: #d8d0c1;
+      --muted: #a99f90;
+      --gold: #b49a68;
+      --gold-light: #d0ba8b;
+      --line: rgba(242, 236, 223, 0.14);
+      --line-strong: rgba(242, 236, 223, 0.24);
+      --success: #9db49c;
+      --danger: #d5a49a;
+      --max-width: 1180px;
+      --serif: "Noto Serif HK", "Songti TC", "Times New Roman", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--cream);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(180, 154, 104, 0.05), transparent 35%),
+        radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.025), transparent 28%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--gold-light);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, .logo, .quote {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    h1 {
+      max-width: 880px;
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      max-width: 780px;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    h3 { font-size: 1.55rem; line-height: 1.25; }
+    p { color: var(--cream-soft); }
+
+    .lead {
+      max-width: 720px;
+      font-size: clamp(1.08rem, 1.7vw, 1.32rem);
+      line-height: 1.75;
+    }
+
+    .section-heading { margin-bottom: 58px; }
+    .section-heading p { margin-top: 24px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .btn:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border-color: var(--line-strong);
+    }
+
+    .btn-outline:hover {
+      color: var(--navy);
+      background: var(--cream);
+      border-color: var(--cream);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(11, 20, 32, 0.9);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      color: var(--gold-light);
+      font-size: 0.84rem;
+    }
+
+    .logo { font-size: 1.28rem; letter-spacing: 0.04em; }
+    .nav { display: flex; align-items: center; gap: 30px; }
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      color: var(--cream-soft);
+      font-size: 0.86rem;
+    }
+    .nav-links a { transition: color 160ms ease; }
+    .nav-links a:hover { color: var(--cream); }
+
+    .hero {
+      min-height: calc(100vh - 77px);
+      display: flex;
+      align-items: center;
+      padding: 90px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.5fr);
+      gap: 70px;
+      align-items: end;
+    }
+
+    .hero-copy p {
+      max-width: 680px;
+      margin-top: 34px;
+      font-size: 1.16rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+    }
+
+    .trust-note { margin-top: 20px; color: var(--muted); font-size: 0.82rem; }
+    .hero-aside {
+      padding: 34px 0 10px 35px;
+      border-left: 1px solid var(--line-strong);
+    }
+
+    .hero-aside-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+    }
+
+    .hero-stat {
+      margin-top: 14px;
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 4vw, 3.6rem);
+      line-height: 1;
+      color: var(--cream);
+    }
+
+    .hero-aside p { margin-top: 17px; font-size: 0.91rem; }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+    }
+
+    .problem-copy p + p { margin-top: 20px; }
+
+    .quote {
+      padding: 38px;
+      background: var(--navy-soft);
+      border: 1px solid var(--line);
+      color: var(--cream);
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.4;
+    }
+
+    .quote span {
+      display: block;
+      margin-top: 22px;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .criteria-card {
+      min-height: 290px;
+      padding: 40px;
+      background: var(--navy);
+    }
+
+    .criteria-number {
+      margin-bottom: 52px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 0.94rem;
+    }
+
+    .criteria-card h3 { margin-bottom: 14px; }
+    .criteria-card p { font-size: 0.96rem; }
+
+    .timeline { border-top: 1px solid var(--line-strong); }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr 1fr;
+      gap: 28px;
+      padding: 38px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .step-no {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+    }
+
+    .timeline-item p { max-width: 590px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .about-panel {
+      padding: 44px;
+      background: var(--navy-soft);
+      border: 1px solid var(--line);
+    }
+
+    .about-panel h3 { margin-bottom: 24px; }
+    .about-panel p + p { margin-top: 17px; }
+    .operator-list { list-style: none; margin-top: 35px; }
+
+    .operator-list li {
+      position: relative;
+      padding: 16px 0 16px 25px;
+      border-top: 1px solid var(--line);
+      color: var(--cream-soft);
+    }
+
+    .operator-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 25px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .fee-wrap {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .fee-card {
+      padding: 46px;
+      background: var(--cream);
+      color: var(--navy);
+    }
+
+    .fee-card .eyebrow { color: #7c6842; }
+    .fee-range {
+      font-family: var(--serif);
+      font-size: clamp(4.5rem, 9vw, 7.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+    }
+
+    .fee-card p { margin-top: 28px; color: #3f4650; }
+    .fee-note { margin-top: 14px; font-size: 0.79rem; color: #65686d; }
+    .fee-details p + p { margin-top: 20px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+    }
+
+    .contact-points { margin-top: 36px; }
+    .contact-point {
+      padding: 21px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-point strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--cream);
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      font-weight: 400;
+    }
+
+    form {
+      display: grid;
+      gap: 20px;
+      padding: 42px;
+      background: var(--navy-soft);
+      border: 1px solid var(--line);
+    }
+
+    .field { display: grid; gap: 8px; }
+    label {
+      color: var(--cream-soft);
+      font-size: 0.79rem;
+      letter-spacing: 0.05em;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 0;
+      outline: none;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--cream);
+      padding: 15px 16px;
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    input::placeholder, textarea::placeholder { color: #777f87; }
+    textarea { min-height: 155px; resize: vertical; }
+
+    .form-footer { display: flex; flex-direction: column; gap: 13px; }
+    .form-disclaimer { color: var(--muted); font-size: 0.78rem; }
+    .form-status { min-height: 20px; font-size: 0.84rem; }
+    .form-status.success { color: var(--success); }
+    .form-status.error { color: var(--danger); }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .footer-brand { color: var(--cream-soft); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+                  transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 100ms; }
+    .delay-2 { transition-delay: 180ms; }
+    .delay-3 { transition-delay: 260ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 900px) {
+      .section { padding: 82px 0; }
+      .nav-links { display: none; }
+      .hero { min-height: auto; padding: 85px 0; }
+      .hero-grid, .problem-grid, .about-grid, .fee-wrap, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+      .hero-aside {
+        border-left: 0;
+        border-top: 1px solid var(--line-strong);
+        padding: 30px 0 0;
+      }
+      .timeline-item { grid-template-columns: 55px 1fr; }
+      .timeline-item p { grid-column: 2; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      .header-inner { min-height: 68px; }
+      .brand-mark { display: none; }
+      .logo { font-size: 1.1rem; }
+      .header-cta { min-height: 40px; padding: 0 14px; font-size: 0.76rem; }
+      .section { padding: 68px 0; }
+      .hero { padding: 72px 0 68px; }
+      h1 { font-size: clamp(2.75rem, 14vw, 4.5rem); }
+      h2 { font-size: clamp(2rem, 10vw, 3rem); }
+      .hero-copy p { font-size: 1.02rem; }
+      .hero-actions { display: grid; }
+      .hero-actions .btn { width: 100%; }
+      .criteria-grid { grid-template-columns: 1fr; }
+      .criteria-card { min-height: 0; padding: 32px 28px; }
+      .criteria-number { margin-bottom: 32px; }
+      .timeline-item { grid-template-columns: 40px 1fr; gap: 18px; }
+      .about-panel, .fee-card, form { padding: 30px 24px; }
+      .fee-range { font-size: clamp(4rem, 22vw, 6rem); }
+      .footer-inner { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Second Wind home">
+        <div class="brand-mark">SW</div>
+        <div class="logo">Second Wind</div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="#criteria">Criteria</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#founder">Founder</a></li>
+          <li><a href="#fees">Fees</a></li>
+        </ul>
+        <a href="#contact" class="btn header-cta">Confidential Inquiry</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Hong Kong Business Succession</span>
+          <h1>A good business should outlive its founder.</h1>
+          <p>
+            Second Wind helps established Hong Kong business owners prepare for
+            retirement, position their companies properly, and find credible
+            next-generation owners who can carry the business forward.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn">Start a Confidential Conversation</a>
+            <a href="#criteria" class="btn btn-outline">See What We Look For</a>
+          </div>
+          <div class="trust-note">
+            Selective engagements · Owner-led process · Confidential by default
+          </div>
+        </div>
+
+        <aside class="hero-aside reveal delay-1">
+          <div class="hero-aside-label">Our Focus</div>
+          <div class="hero-stat">HK$10–20M</div>
+          <p>
+            Established businesses that are often too substantial for the
+            typical retail marketplace, yet too small for institutional M&A.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="problem-grid">
+          <div class="reveal">
+            <span class="eyebrow">The Succession Problem</span>
+            <h2>Retirement should not mean closing the doors.</h2>
+          </div>
+          <div class="problem-copy reveal delay-1">
+            <p>
+              Across Hong Kong, many profitable businesses are still operated
+              by the founders who built them decades ago. Their companies have
+              employees, customers, supplier relationships, operating knowledge,
+              licences and reputations that took years to establish.
+            </p>
+            <p>
+              Yet when the founder is ready to retire, the next generation may
+              have chosen a different path. Senior employees may not have the
+              capital to acquire the business. Traditional brokers may simply
+              advertise the company and wait.
+            </p>
+            <p>
+              The result is a succession gap: good businesses can become
+              stranded between the small-business marketplace and institutional
+              M&A.
+            </p>
+            <div class="quote" style="margin-top: 38px;">
+              “The objective is not merely to sell a company. It is to create a
+              credible transition from one owner to the next.”
+              <span>Second Wind</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="criteria">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">What We Look For</span>
+          <h2>We focus on businesses worth preserving.</h2>
+          <p class="lead">
+            Second Wind is deliberately selective. We look for established
+            companies where responsible ownership succession can preserve real
+            economic value for customers, employees and the founder.
+          </p>
+        </div>
+
+        <div class="criteria-grid">
+          <article class="criteria-card reveal">
+            <div class="criteria-number">01</div>
+            <h3>Genuine Succession Need</h3>
+            <p>
+              The founder is considering retirement or reducing involvement,
+              and there is no obvious family successor prepared to take over.
+            </p>
+          </article>
+
+          <article class="criteria-card reveal delay-1">
+            <div class="criteria-number">02</div>
+            <h3>Boring, Stable & Proven</h3>
+            <p>
+              We prefer necessary businesses over fashionable ones: specialist
+              suppliers, maintenance firms, technical contractors, certified
+              trades and other durable B2B services.
+            </p>
+          </article>
+
+          <article class="criteria-card reveal">
+            <div class="criteria-number">03</div>
+            <h3>Locally Defensible</h3>
+            <p>
+              The business relies on trust, physical execution, certification,
+              responsiveness, technical knowledge or customer relationships
+              that cannot simply be outsourced across the border.
+            </p>
+          </article>
+
+          <article class="criteria-card reveal delay-1">
+            <div class="criteria-number">04</div>
+            <h3>Built for the Next Decade</h3>
+            <p>
+              We seek companies whose products or services should remain
+              economically relevant over the next 10–15 years, rather than
+              businesses dependent on short-lived trends.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">The Process</span>
+          <h2>We turn an owner-operated company into an investable opportunity.</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="step-no">01</div>
+            <h3>Understand the Business</h3>
+            <p>
+              We begin with the operating reality: customers, margins,
+              employees, supplier relationships, owner responsibilities,
+              competitive advantages and succession risks.
+            </p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="step-no">02</div>
+            <h3>Package the Story</h3>
+            <p>
+              We organise financial and operational information, surface the
+              company's real strengths and present them in a format that serious
+              acquirers can evaluate efficiently.
+            </p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="step-no">03</div>
+            <h3>Qualify the Buyer</h3>
+            <p>
+              Sensitive information is not circulated indiscriminately.
+              Prospective buyers should demonstrate credible intent, financial
+              capacity and an appropriate reason for acquiring the company.
+            </p>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="step-no">04</div>
+            <h3>Drive the Transaction</h3>
+            <p>
+              We coordinate information, anticipate diligence questions,
+              maintain momentum and help both sides move toward a clear,
+              executable decision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="founder">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal">
+            <span class="eyebrow">The Operator's Edge</span>
+            <h2>I have sat on the buyer's side of the table.</h2>
+            <p class="lead" style="margin-top: 28px;">
+              Second Wind was built around a simple idea: succession is easier
+              when the person guiding the process understands what it means to
+              actually acquire and operate a business.
+            </p>
+          </div>
+
+          <div class="about-panel reveal delay-1">
+            <h3>Operator first. Intermediary second.</h3>
+            <p>
+              I have acquired businesses from retiring owners and understand
+              the questions that rarely appear in a financial model.
+            </p>
+            <p>
+              Will the employees stay? Will customers remain loyal? Can the
+              company operate without the founder? What knowledge exists only
+              in someone's head? What will the first 100 days look like?
+            </p>
+            <p>
+              I also understand the seller's concerns: protecting employees,
+              preserving reputation, choosing the right successor and avoiding
+              an unnecessarily aggressive or disruptive sale process.
+            </p>
+
+            <ul class="operator-list">
+              <li>Direct experience acquiring from retiring founders</li>
+              <li>Practical preliminary due diligence</li>
+              <li>Hands-on preparation of buyer materials</li>
+              <li>Respectful communication with traditional business owners</li>
+              <li>Active transaction management rather than passive listing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fees">
+      <div class="container">
+        <div class="fee-wrap">
+          <div class="fee-details reveal">
+            <span class="eyebrow">Fee Structure</span>
+            <h2>Aligned with a successful outcome.</h2>
+            <p class="lead" style="margin-top: 28px;">
+              We believe owners should understand the economics of the
+              engagement before committing to a process.
+            </p>
+            <p>
+              Our typical success fee is structured as a percentage of the
+              completed transaction value. The exact fee depends on the
+              complexity of the company, required preparation work and expected
+              transaction size.
+            </p>
+            <p>
+              Any engagement terms, exclusions and potential upfront work are
+              agreed clearly before we begin.
+            </p>
+          </div>
+
+          <div class="fee-card reveal delay-1">
+            <span class="eyebrow">Typical Success Fee</span>
+            <div class="fee-range">5–7%</div>
+            <p>
+              Payable on successful completion of a transaction, subject to the
+              terms agreed for each engagement.
+            </p>
+            <div class="fee-note">
+              Final fees and scope are confirmed in writing before engagement.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="reveal">
+            <span class="eyebrow">Confidential Inquiry</span>
+            <h2>You do not need to be ready to sell.</h2>
+            <p class="lead" style="margin-top: 28px;">
+              The first conversation is simply an opportunity to understand your
+              situation and whether Second Wind is the right fit.
+            </p>
+
+            <div class="contact-points">
+              <div class="contact-point">
+                <strong>Private by default</strong>
+                <p>
+                  We do not contact employees, customers, suppliers or other
+                  parties without your permission.
+                </p>
+              </div>
+
+              <div class="contact-point">
+                <strong>No obligation</strong>
+                <p>
+                  An initial discussion does not commit you to selling or
+                  formally engaging Second Wind.
+                </p>
+              </div>
+
+              <div class="contact-point">
+                <strong>Owner-to-owner conversation</strong>
+                <p>
+                  No call centre. No aggressive listing pitch. Just a practical
+                  discussion about succession.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <form
+            id="inquiry-form"
+            class="reveal delay-1"
+            action="https://formspree.io/f/yourcode"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New Second Wind Confidential Inquiry" />
+
+            <div class="field">
+              <label for="name">NAME</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+
+            <div class="field">
+              <label for="company">COMPANY</label>
+              <input id="company" name="company" type="text" autocomplete="organization" placeholder="Company name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">EMAIL</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
+            </div>
+
+            <div class="field">
+              <label for="message">MESSAGE</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us briefly about your business, your retirement timeframe, or what you would like to discuss."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-footer">
+              <button type="submit" class="btn">Send Confidential Inquiry</button>
+              <p class="form-disclaimer">
+                By submitting this form, you are requesting a private conversation with Second Wind.
+                No business information will be shared with prospective buyers without further discussion and authorisation.
+              </p>
+              <div id="form-status" class="form-status" aria-live="polite"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">Second Wind · Hong Kong</div>
+      <div>© <span id="year"></span> Second Wind. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, observerInstance) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observerInstance.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => element.classList.add("visible"));
+    }
+
+    const form = document.getElementById("inquiry-form");
+    const formStatus = document.getElementById("form-status");
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending…";
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          formStatus.textContent =
+            "Thank you. Your inquiry has been received and will be treated confidentially.";
+          formStatus.classList.add("success");
+          form.reset();
+        } else {
+          const data = await response.json().catch(() => null);
+
+          if (data && data.errors) {
+            formStatus.textContent = data.errors.map((error) => error.message).join(", ");
+          } else {
+            formStatus.textContent =
+              "We could not submit the inquiry. Please check the form and try again.";
+          }
+
+          formStatus.classList.add("error");
+        }
+      } catch (error) {
+        formStatus.textContent =
+          "There was a connection problem. Please try again.";
+        formStatus.classList.add("error");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  </script>
+</body>
+</html>
