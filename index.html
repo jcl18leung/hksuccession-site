@@ -139,6 +139,19 @@
       border-color: var(--cream);
     }
 
+
+    .header-actions { display:flex; align-items:center; gap:16px; }
+    .language-switch { display:inline-flex; align-items:center; gap:5px; color:var(--muted); font-size:.74rem; white-space:nowrap; }
+    .lang-btn { border:0; background:transparent; color:var(--muted); padding:5px 2px; cursor:pointer; font:inherit; }
+    .lang-btn:hover, .lang-btn.active { color:var(--gold-light); }
+    html[lang="zh-Hant"] h1,
+    html[lang="zh-Hant"] h2,
+    html[lang="zh-Hant"] h3,
+    html[lang="zh-Hant"] .logo,
+    html[lang="zh-Hant"] .quote {
+      font-family:"Noto Serif TC","Songti TC","PMingLiU",Georgia,serif;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
@@ -514,7 +527,14 @@
           <li><a href="#founder">Founder</a></li>
           <li><a href="#fees">Fees</a></li>
         </ul>
-        <a href="#contact" class="btn header-cta">Confidential Inquiry</a>
+        <div class="header-actions">
+          <div class="language-switch" aria-label="Language selector">
+            <button type="button" class="lang-btn" data-lang="en">EN</button>
+            <span>/</span>
+            <button type="button" class="lang-btn" data-lang="zh-Hant">繁中</button>
+          </div>
+          <a href="#contact" class="btn header-cta">Confidential Inquiry</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -863,6 +883,113 @@
   </footer>
 
   <script>
+
+    const zhHant = {
+      "Criteria":"收購條件","Process":"流程","Founder":"創辦人","Fees":"收費","Confidential Inquiry":"保密查詢",
+      "Hong Kong Business Succession":"香港企業傳承與併購",
+      "A good business should outlive its founder.":"好生意，值得由下一代延續。",
+      "Second Wind helps established Hong Kong business owners prepare for retirement, position their companies properly, and find credible next-generation owners who can carry the business forward.":"Second Wind 協助香港成熟企業的創辦人規劃退休、整理及呈現公司的真正價值，並尋找具實力、可信賴的新一代接班買家，讓多年建立的事業得以延續。",
+      "Start a Confidential Conversation":"展開保密對話","See What We Look For":"了解我們尋找的企業",
+      "Selective engagements · Owner-led process · Confidential by default":"精選委託 · 創辦人親自主理 · 保密為先",
+      "Our Focus":"我們的定位",
+      "Established businesses that are often too substantial for the typical retail marketplace, yet too small for institutional M&A.":"專注年營業額約港幣 1,000萬至2,000萬元的成熟企業——對一般小型生意買家而言規模較大，對機構型私募基金而言又往往太小。",
+      "The Succession Problem":"企業傳承問題","Retirement should not mean closing the doors.":"退休，不應等於結業。",
+      "Across Hong Kong, many profitable businesses are still operated by the founders who built them decades ago. Their companies have employees, customers, supplier relationships, operating knowledge, licences and reputations that took years to establish.":"香港有不少盈利穩定的企業，至今仍由數十年前創業的第一代創辦人親自經營。這些公司擁有多年累積的員工團隊、客戶關係、供應商網絡、營運經驗、牌照及業界聲譽。",
+      "Yet when the founder is ready to retire, the next generation may have chosen a different path. Senior employees may not have the capital to acquire the business. Traditional brokers may simply advertise the company and wait.":"但當創辦人準備退休時，下一代未必有意接班；核心員工亦未必有足夠資金收購公司。傳統中介很多時只是把公司放上市場，然後等待買家出現。",
+      "The result is a succession gap: good businesses can become stranded between the small-business marketplace and institutional M&A.":"結果，一批本來值得延續的企業落入市場空隙：規模太大，不適合一般小生意交易；但又未達到大型投行或私募基金的目標門檻。",
+      "“The objective is not merely to sell a company. It is to create a credible transition from one owner to the next.”":"「我們的目標，不只是把公司賣掉，而是為企業安排一次可信、穩妥的擁有權交接。」",
+      "What We Look For":"我們尋找的企業","We focus on businesses worth preserving.":"我們專注值得被延續的生意。",
+      "Second Wind is deliberately selective. We look for established companies where responsible ownership succession can preserve real economic value for customers, employees and the founder.":"Second Wind 採取審慎而精選的方式。我們尋找的是已有穩定基礎，並可透過合適接班安排，繼續為客戶、員工及創辦人創造價值的企業。",
+      "Genuine Succession Need":"真正的接班需要","The founder is considering retirement or reducing involvement, and there is no obvious family successor prepared to take over.":"創辦人正考慮退休或逐步退下，而家族內沒有明確、有意願及合適的接班人。",
+      "Boring, Stable & Proven":"平實、穩定、經得起時間","We prefer necessary businesses over fashionable ones: specialist suppliers, maintenance firms, technical contractors, certified trades and other durable B2B services.":"我們偏好必要而非潮流性的生意，例如專業 B2B 供應商、維修保養公司、技術承辦商、持牌工種及其他具持續需求的服務業。",
+      "Locally Defensible":"具本地防守能力","The business relies on trust, physical execution, certification, responsiveness, technical knowledge or customer relationships that cannot simply be outsourced across the border.":"企業的價值建立於信任、現場執行、牌照資格、快速回應、專業技術或長期客戶關係，而不是可以輕易外判到內地或被低成本跨境勞動力取代。",
+      "Built for the Next Decade":"未來十年仍有需要","We seek companies whose products or services should remain economically relevant over the next 10–15 years, rather than businesses dependent on short-lived trends.":"我們尋找未來 10 至 15 年仍具經濟價值及實際需求的產品或服務，而非依賴短期潮流的生意模式。",
+      "The Process":"我們的流程","We turn an owner-operated company into an investable opportunity.":"把老闆親力親為的公司，整理成買家看得懂、敢承接的企業。",
+      "Understand the Business":"了解真正的生意","We begin with the operating reality: customers, margins, employees, supplier relationships, owner responsibilities, competitive advantages and succession risks.":"我們先了解實際營運：客戶、毛利、員工、供應商關係、老闆日常角色、競爭優勢，以及接班後可能出現的風險。",
+      "Package the Story":"整理公司故事與數據","We organise financial and operational information, surface the company's real strengths and present them in a format that serious acquirers can evaluate efficiently.":"我們整理財務及營運資料，找出公司的真正優勢，並以認真買家可以高效理解及評估的方式呈現。",
+      "Qualify the Buyer":"篩選合資格買家","Sensitive information is not circulated indiscriminately. Prospective buyers should demonstrate credible intent, financial capacity and an appropriate reason for acquiring the company.":"敏感資料不會隨意外傳。潛在買家需要先證明其收購意向、資金能力，以及為何適合承接該企業。",
+      "Drive the Transaction":"推動交易向前","We coordinate information, anticipate diligence questions, maintain momentum and help both sides move toward a clear, executable decision.":"我們協調資料、預先處理盡職審查問題、維持交易節奏，並協助買賣雙方走向清晰而可執行的決定。",
+      "The Operator's Edge":"營運者的優勢","I have sat on the buyer's side of the table.":"我曾經坐在買家的位置。",
+      "Second Wind was built around a simple idea: succession is easier when the person guiding the process understands what it means to actually acquire and operate a business.":"Second Wind 建基於一個簡單理念：如果主理交易的人真正理解收購及營運一家公司的現實，企業傳承會做得更好。",
+      "Operator first. Intermediary second.":"先是營運者，再是中介。",
+      "I have acquired businesses from retiring owners and understand the questions that rarely appear in a financial model.":"我曾向退休創辦人收購企業，因此明白很多真正重要的問題，從來不會完整地出現在財務模型上。",
+      "Will the employees stay? Will customers remain loyal? Can the company operate without the founder? What knowledge exists only in someone's head? What will the first 100 days look like?":"員工會留下嗎？客戶會繼續合作嗎？沒有創辦人在場，公司能否正常運作？哪些知識只存在於某個人的腦海裡？交接後首 100 天會是怎樣？",
+      "I also understand the seller's concerns: protecting employees, preserving reputation, choosing the right successor and avoiding an unnecessarily aggressive or disruptive sale process.":"我也理解賣方的顧慮：保障員工、維持公司聲譽、選擇合適接班人，以及避免一個過度進取或擾亂日常營運的出售過程。",
+      "Direct experience acquiring from retiring founders":"具備向退休創辦人收購企業的實戰經驗","Practical preliminary due diligence":"務實的初步盡職審查","Hands-on preparation of buyer materials":"親自整理及準備買家材料","Respectful communication with traditional business owners":"以尊重、務實的方式與傳統企業老闆溝通","Active transaction management rather than passive listing":"主動管理交易，而不是被動刊登等待",
+      "Fee Structure":"收費結構","Aligned with a successful outcome.":"利益與成功成交一致。",
+      "We believe owners should understand the economics of the engagement before committing to a process.":"我們認為，企業主在正式展開出售流程前，應先清楚了解合作的經濟安排。",
+      "Our typical success fee is structured as a percentage of the completed transaction value. The exact fee depends on the complexity of the company, required preparation work and expected transaction size.":"一般而言，我們的成功費按最終成交金額的百分比計算。實際比例會視乎公司複雜程度、前期整理工作量及預期交易規模而定。",
+      "Any engagement terms, exclusions and potential upfront work are agreed clearly before we begin.":"所有委託條款、例外情況及任何可能的前期工作費用，都會在開始前清楚書面確認。",
+      "Typical Success Fee":"一般成功費","Payable on successful completion of a transaction, subject to the terms agreed for each engagement.":"在交易成功完成後支付，實際安排以雙方事先同意的委託條款為準。","Final fees and scope are confirmed in writing before engagement.":"最終費用及服務範圍會在正式委託前以書面確認。",
+      "You do not need to be ready to sell.":"你毋須已經決定出售。","The first conversation is simply an opportunity to understand your situation and whether Second Wind is the right fit.":"第一次對話只是讓我們了解你的情況，以及 Second Wind 是否適合協助你規劃下一步。",
+      "Private by default":"保密為先","We do not contact employees, customers, suppliers or other parties without your permission.":"未經你的同意，我們不會聯絡員工、客戶、供應商或其他相關人士。",
+      "No obligation":"沒有任何承諾","An initial discussion does not commit you to selling or formally engaging Second Wind.":"初步交流並不代表你必須出售公司，也不代表你已正式委託 Second Wind。",
+      "Owner-to-owner conversation":"老闆與老闆之間的對話","No call centre. No aggressive listing pitch. Just a practical discussion about succession.":"沒有電話銷售團隊，也沒有進取式推銷。只是一次務實、直接的企業傳承討論。",
+      "NAME":"姓名","COMPANY":"公司","EMAIL":"電郵","MESSAGE":"訊息","Send Confidential Inquiry":"提交保密查詢",
+      "By submitting this form, you are requesting a private conversation with Second Wind. No business information will be shared with prospective buyers without further discussion and authorisation.":"提交此表格即表示你希望與 Second Wind 進行私人交流。在進一步討論並取得你的授權前，我們不會向潛在買家披露任何公司資料。",
+      "Second Wind · Hong Kong":"Second Wind · 香港","All rights reserved.":"版權所有。"
+    };
+
+    const zhPlaceholders = {
+      "Your name":"你的姓名",
+      "Company name":"公司名稱",
+      "Tell us briefly about your business, your retirement timeframe, or what you would like to discuss.":"請簡單介紹你的公司、退休時間表，或你希望討論的事項。"
+    };
+
+    const originalNodes = [];
+    const originalPlaceholders = [];
+
+    function norm(v){ return v.replace(/\s+/g," ").trim(); }
+
+    function initI18n(){
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let node;
+      while((node = walker.nextNode())){
+        const key = norm(node.nodeValue);
+        if(key && zhHant[key]) originalNodes.push([node,node.nodeValue,key]);
+      }
+      document.querySelectorAll("input[placeholder],textarea[placeholder]").forEach(el=>{
+        if(zhPlaceholders[el.placeholder]) originalPlaceholders.push([el,el.placeholder]);
+      });
+    }
+
+    function detectLanguage(){
+      const langs = navigator.languages?.length ? navigator.languages : [navigator.language || "en"];
+      return langs.some(lang=>{
+        const l=String(lang).toLowerCase();
+        return l==="zh-hk" || l.startsWith("zh-hk-") || l==="zh-tw" || l.startsWith("zh-tw-") ||
+               l==="zh-mo" || l.startsWith("zh-mo-") || l.includes("hant");
+      }) ? "zh-Hant" : "en";
+    }
+
+    function setLanguage(lang, remember=false){
+      const zh = lang==="zh-Hant";
+      document.documentElement.lang = zh ? "zh-Hant" : "en";
+      document.title = zh ? "Second Wind | 香港企業傳承與併購" : "Second Wind | Hong Kong Business Succession & M&A";
+
+      originalNodes.forEach(([node,original,key])=>{
+        node.nodeValue = zh ? original.replace(key, zhHant[key]) : original;
+      });
+      originalPlaceholders.forEach(([el,original])=>{
+        el.placeholder = zh ? zhPlaceholders[original] : original;
+      });
+
+      document.querySelectorAll(".lang-btn").forEach(btn=>{
+        const active = btn.dataset.lang === (zh ? "zh-Hant" : "en");
+        btn.classList.toggle("active",active);
+        btn.setAttribute("aria-pressed",String(active));
+      });
+      if(remember) localStorage.setItem("secondWindLanguage", zh ? "zh-Hant" : "en");
+    }
+
+    initI18n();
+    const saved = localStorage.getItem("secondWindLanguage");
+    setLanguage(saved==="en" || saved==="zh-Hant" ? saved : detectLanguage());
+
+    document.querySelectorAll(".lang-btn").forEach(btn=>{
+      btn.addEventListener("click",()=>setLanguage(btn.dataset.lang,true));
+    });
+
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const revealElements = document.querySelectorAll(".reveal");
@@ -895,9 +1022,9 @@
       formStatus.textContent = "";
       formStatus.className = "form-status";
 
-      const originalButtonText = submitButton.textContent;
+      const originalButtonText = document.documentElement.lang === "zh-Hant" ? "提交保密查詢" : "Send Confidential Inquiry";
       submitButton.disabled = true;
-      submitButton.textContent = "Sending…";
+      submitButton.textContent = document.documentElement.lang === "zh-Hant" ? "傳送中…" : "Sending…";
 
       try {
         const response = await fetch(form.action, {
@@ -908,7 +1035,7 @@
 
         if (response.ok) {
           formStatus.textContent =
-            "Thank you. Your inquiry has been received and will be treated confidentially.";
+            (document.documentElement.lang === "zh-Hant" ? "謝謝。你的查詢已收到，我們會以保密方式處理。" : "Thank you. Your inquiry has been received and will be treated confidentially.");
           formStatus.classList.add("success");
           form.reset();
         } else {
@@ -918,14 +1045,14 @@
             formStatus.textContent = data.errors.map((error) => error.message).join(", ");
           } else {
             formStatus.textContent =
-              "We could not submit the inquiry. Please check the form and try again.";
+              (document.documentElement.lang === "zh-Hant" ? "未能提交查詢。請檢查表格內容後再試一次。" : "We could not submit the inquiry. Please check the form and try again.");
           }
 
           formStatus.classList.add("error");
         }
       } catch (error) {
         formStatus.textContent =
-          "There was a connection problem. Please try again.";
+          (document.documentElement.lang === "zh-Hant" ? "連線出現問題，請稍後再試。" : "There was a connection problem. Please try again.");
         formStatus.classList.add("error");
       } finally {
         submitButton.disabled = false;
