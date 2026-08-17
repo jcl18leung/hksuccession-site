@@ -380,6 +380,235 @@
       form { padding: 22px 18px; }
       .footer-inner { flex-direction: column; gap: 6px; }
     }
+  
+
+    /* Fit-check survey */
+    .fit-fab {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px 0 12px;
+      border: 1px solid rgba(122, 80, 76, .24);
+      border-radius: 999px;
+      background: rgba(255, 253, 249, .94);
+      color: var(--ink);
+      box-shadow: 0 12px 32px rgba(82, 62, 48, .14);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .fit-fab:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(82, 62, 48, .18); }
+    .fit-fab-dot {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--wine);
+      color: #fffaf4;
+      font-family: var(--serif);
+      font-size: .72rem;
+    }
+
+    .fit-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+    }
+    .fit-modal.open { display: flex; }
+    .fit-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(42, 34, 30, .48);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    .fit-dialog {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 620px);
+      max-height: min(760px, calc(100vh - 44px));
+      overflow: auto;
+      border: 1px solid rgba(48, 40, 36, .12);
+      border-radius: 26px;
+      background: #fffaf4;
+      box-shadow: 0 30px 90px rgba(49, 37, 30, .28);
+    }
+    .fit-dialog-inner { padding: 34px; }
+    .fit-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--paper-soft);
+      color: var(--ink-soft);
+      font-size: 1.15rem;
+    }
+    .fit-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      color: var(--wine);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .fit-kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--wine);
+    }
+    .fit-dialog h2 { font-size: clamp(1.85rem, 5vw, 2.65rem); padding-right: 36px; }
+    .fit-dialog .fit-intro { margin-top: 15px; font-size: 1rem; line-height: 1.85; }
+    .fit-privacy {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--paper-soft);
+      color: var(--ink-soft);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+    .fit-privacy-icon {
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper-deep);
+      color: var(--wine);
+      font-weight: 800;
+    }
+    .fit-start-actions, .fit-result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .fit-text-btn {
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .fit-progress-wrap { margin-bottom: 28px; }
+    .fit-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+    .fit-progress {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: var(--paper-deep);
+    }
+    .fit-progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--wine), var(--tobacco));
+      transition: width .28s ease;
+    }
+    .fit-question-title {
+      margin-bottom: 18px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 4vw, 1.95rem);
+      line-height: 1.45;
+    }
+    .fit-options { display: grid; gap: 10px; }
+    .fit-option {
+      width: 100%;
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fffdf9;
+      color: var(--ink);
+      transition: border-color .16s ease, background .16s ease, transform .16s ease;
+    }
+    .fit-option:hover { border-color: rgba(122,80,76,.38); background: #fbf1e8; transform: translateX(2px); }
+    .fit-option-arrow { color: var(--wine); font-size: 1.05rem; }
+    .fit-back-row { margin-top: 18px; }
+    .fit-back-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .82rem;
+      padding: 8px 0;
+    }
+    .fit-result-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: #59624e;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .fit-result-title {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      line-height: 1.25;
+    }
+    .fit-result-body { margin-top: 15px; font-size: 1rem; line-height: 1.85; }
+    .fit-result-note {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.65;
+    }
+    body.fit-modal-open { overflow: hidden; }
+
+    @media (max-width: 680px) {
+      .fit-fab { right: 14px; bottom: 14px; }
+      .fit-dialog-inner { padding: 28px 20px 22px; }
+      .fit-dialog { border-radius: 22px; }
+      .fit-start-actions, .fit-result-actions { display: grid; }
+      .fit-start-actions .btn, .fit-result-actions .btn { width: 100%; }
+      .fit-text-btn { width: 100%; }
+    }
+
   </style>
 </head>
 <body>
@@ -420,7 +649,7 @@
 
           <div class="hero-actions">
             <a href="#contact" class="btn" data-i18n="heroCTA">私下談談交棒</a>
-            <a href="#criteria" class="btn btn-outline" data-i18n="heroSecondary">看看是否合適</a>
+            <button type="button" class="btn btn-outline fit-trigger" data-i18n="heroSecondary">看看是否合適</button>
           </div>
 
           <div class="hero-note" data-i18n="heroNote">保密處理 · 不催促 · 不公開放盤 · 先了解，再決定</div>
@@ -666,6 +895,8 @@
 
             <form id="inquiry-form" class="reveal delay-1" action="https://formspree.io/f/yourcode" method="POST">
               <input type="hidden" name="_subject" value="Second Wind Confidential Inquiry" />
+              <input type="hidden" id="qualification-result" name="qualification_result" value="" />
+              <input type="hidden" id="qualification-answers" name="qualification_answers" value="" />
 
               <div class="field">
                 <label for="name" data-i18n="formName">您的稱呼</label>
@@ -696,6 +927,57 @@
       </div>
     </section>
   </main>
+
+
+  <button type="button" class="fit-fab fit-trigger" id="fit-fab" aria-haspopup="dialog">
+    <span class="fit-fab-dot">30s</span>
+    <span data-survey-key="fabLabel">看看我們是否合適</span>
+  </button>
+
+  <div class="fit-modal" id="fit-modal" role="dialog" aria-modal="true" aria-labelledby="fit-modal-title" aria-hidden="true">
+    <div class="fit-backdrop" data-fit-close></div>
+    <div class="fit-dialog">
+      <button type="button" class="fit-close" aria-label="Close" data-fit-close>×</button>
+      <div class="fit-dialog-inner">
+        <div id="fit-start-screen">
+          <div class="fit-kicker" data-survey-key="kicker">30 秒初步評估</div>
+          <h2 id="fit-modal-title" data-survey-key="introTitle">這盤生意，適合 Second Wind 幫手交棒嗎？</h2>
+          <p class="fit-intro" data-survey-key="introBody">回答幾條簡單問題，我們會按企業成熟度、交棒意向及可承接程度，給您一個初步判斷。</p>
+          <div class="fit-privacy">
+            <span class="fit-privacy-icon">✓</span>
+            <span data-survey-key="privacy">不用留下姓名或公司資料。答案只在您的瀏覽器內即時計算；除非您之後主動提交查詢，否則我們收不到這些資料。</span>
+          </div>
+          <div class="fit-start-actions">
+            <button type="button" class="btn" id="fit-start" data-survey-key="start">開始評估</button>
+            <button type="button" class="fit-text-btn" data-fit-close data-survey-key="notNow">暫時不用</button>
+          </div>
+        </div>
+
+        <div id="fit-question-screen" hidden>
+          <div class="fit-progress-wrap">
+            <div class="fit-progress-meta">
+              <span data-survey-key="progressLabel">初步評估</span>
+              <span id="fit-progress-count">1 / 6</span>
+            </div>
+            <div class="fit-progress"><div class="fit-progress-bar" id="fit-progress-bar"></div></div>
+          </div>
+          <div class="fit-question-title" id="fit-question-title"></div>
+          <div class="fit-options" id="fit-options"></div>
+          <div class="fit-back-row">
+            <button type="button" class="fit-back-btn" id="fit-back" data-survey-key="back">← 上一題</button>
+          </div>
+        </div>
+
+        <div id="fit-result-screen" hidden>
+          <div class="fit-result-badge" data-survey-key="resultBadge">初步判斷</div>
+          <div class="fit-result-title" id="fit-result-title"></div>
+          <p class="fit-result-body" id="fit-result-body"></p>
+          <p class="fit-result-note" data-survey-key="resultNote">這只是初步篩選，不是估值或正式接受委託的決定。實際是否合適，仍要了解公司的營運、股權和交棒目標。</p>
+          <div class="fit-result-actions" id="fit-result-actions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="container footer-inner">
@@ -903,6 +1185,197 @@
       }
     };
 
+
+
+    const surveyCopy = {
+      "zh-Hant": {
+        fabLabel: "看看我們是否合適",
+        kicker: "30 秒初步評估",
+        introTitle: "這盤生意，適合 Second Wind 幫手交棒嗎？",
+        introBody: "回答幾條簡單問題，我們會按企業成熟度、交棒意向及可承接程度，給您一個初步判斷。",
+        privacy: "不用留下姓名或公司資料。答案只在您的瀏覽器內即時計算；除非您之後主動提交查詢，否則我們收不到這些資料。",
+        start: "開始評估",
+        notNow: "暫時不用",
+        progressLabel: "初步評估",
+        back: "← 上一題",
+        resultBadge: "初步判斷",
+        resultNote: "這只是初步篩選，不是估值或正式接受委託的決定。實際是否合適，仍要了解公司的營運、股權和交棒目標。",
+        contactCTA: "安排一次保密對話",
+        criteriaCTA: "看看我們尋找的企業",
+        restartCTA: "重新評估",
+        questions: [
+          {
+            text: "您目前對交棒的想法是？",
+            options: [
+              ["希望 12 個月內開始安排", 2],
+              ["希望未來 1–3 年逐步退下來", 2],
+              ["正在了解選擇，暫時沒有時間表", 1],
+              ["目前沒有退休或交棒打算", 0]
+            ]
+          },
+          {
+            text: "目前有沒有明確的家族或內部接班人？",
+            options: [
+              ["沒有，子女或管理層無意／不適合接手", 2],
+              ["未確定，仍在考慮", 1.25],
+              ["已有很明確的家族或內部接班安排", 0.5]
+            ]
+          },
+          {
+            text: "公司大概經營了多久？",
+            options: [
+              ["15 年以上", 2],
+              ["8–15 年", 1.75],
+              ["3–7 年", 1],
+              ["少於 3 年", 0]
+            ]
+          },
+          {
+            text: "公司除了老闆之外，有多少固定員工或核心團隊？",
+            options: [
+              ["20 人以上", 2],
+              ["5–20 人", 2],
+              ["1–4 人", 1],
+              ["主要只有老闆本人", 0]
+            ]
+          },
+          {
+            text: "公司每年營業額大概在哪個範圍？",
+            options: [
+              ["HK$100M 或以上", 2],
+              ["HK$50M–100M", 2],
+              ["HK$10M–50M", 2],
+              ["HK$5M–10M", 1.25],
+              ["少於 HK$5M", 0]
+            ]
+          },
+          {
+            text: "如果老闆逐步退下來，公司最接近以下哪種情況？",
+            options: [
+              ["有團隊、合約、牌照或長期客戶，公司可以逐步脫離老闆運作", 2],
+              ["大部分可以交接，但部分客戶或流程仍很依賴老闆", 1.5],
+              ["很多收入和客戶主要依賴老闆本人", 0.5],
+              ["業務仍很早期或高度依賴短期項目／潮流", 0]
+            ]
+          }
+        ],
+        results: {
+          strong: {
+            title: "看起來相當合適。",
+            body: "您的情況具備 Second Wind 通常最能幫上忙的幾個特徵：企業已有一定根基、交棒議題真實存在，而且公司本身有可延續的營運價值。下一步最有用的，不是急著做決定，而是先私下把情況講清楚。"
+          },
+          possible: {
+            title: "值得先傾一傾。",
+            body: "您的公司未必需要立即開始正式交棒，但已有一些值得提早整理的條件。尤其如果未來幾年有退休打算，越早把老闆依賴、核心團隊和客戶關係理清，之後會容易很多。"
+          },
+          early: {
+            title: "現階段未必是最合適。",
+            body: "從目前答案看，公司可能仍較早期、規模偏小、過度依賴老闆本人，或交棒需要尚未成熟。這不代表公司不好，只是 Second Wind 的服務通常在企業已有較完整團隊和可承接營運時更能發揮價值。"
+          }
+        }
+      },
+      en: {
+        fabLabel: "See if we are a fit",
+        kicker: "30-SECOND FIT CHECK",
+        introTitle: "Would Second Wind be a good fit for your business handover?",
+        introBody: "Answer a few simple questions and we will give you an initial view based on business maturity, succession intent and how transferable the company appears to be.",
+        privacy: "No name or company details are required. Your answers are scored in your browser only. We do not receive them unless you later choose to submit an inquiry.",
+        start: "Start the fit check",
+        notNow: "Not now",
+        progressLabel: "Fit check",
+        back: "← Previous question",
+        resultBadge: "Initial view",
+        resultNote: "This is only an initial screening, not a valuation or a decision to accept an engagement. Actual fit depends on understanding the company's operations, ownership and handover objectives.",
+        contactCTA: "Arrange a confidential conversation",
+        criteriaCTA: "See what we look for",
+        restartCTA: "Retake the check",
+        questions: [
+          {
+            text: "Where are you currently in thinking about a handover?",
+            options: [
+              ["I would like to begin planning within 12 months", 2],
+              ["I expect to step back gradually over the next 1–3 years", 2],
+              ["I am exploring options without a firm timetable", 1],
+              ["I am not currently considering retirement or a handover", 0]
+            ]
+          },
+          {
+            text: "Is there already a clear family or internal successor?",
+            options: [
+              ["No — family or management do not intend or are not suited to take over", 2],
+              ["Uncertain — we are still considering it", 1.25],
+              ["Yes — there is already a clear family or internal succession plan", 0.5]
+            ]
+          },
+          {
+            text: "Roughly how long has the company been operating?",
+            options: [
+              ["More than 15 years", 2],
+              ["8–15 years", 1.75],
+              ["3–7 years", 1],
+              ["Less than 3 years", 0]
+            ]
+          },
+          {
+            text: "Beyond the owner, how large is the regular team?",
+            options: [
+              ["More than 20 people", 2],
+              ["5–20 people", 2],
+              ["1–4 people", 1],
+              ["The business is mainly the owner", 0]
+            ]
+          },
+          {
+            text: "Approximately what is the company's annual revenue?",
+            options: [
+              ["HK$100M or more", 2],
+              ["HK$50M–100M", 2],
+              ["HK$10M–50M", 2],
+              ["HK$5M–10M", 1.25],
+              ["Below HK$5M", 0]
+            ]
+          },
+          {
+            text: "If the owner gradually stepped back, which best describes the business?",
+            options: [
+              ["It has a team, contracts, licences or repeat customers and can increasingly operate without the owner", 2],
+              ["Most of it can transfer, but some customers or processes still rely heavily on the owner", 1.5],
+              ["A large share of revenue and customer relationships depend personally on the owner", 0.5],
+              ["The business is still early-stage or heavily dependent on short-term projects or trends", 0]
+            ]
+          }
+        ],
+        results: {
+          strong: {
+            title: "You look like a strong fit.",
+            body: "Your situation has several characteristics where Second Wind can usually add the most value: an established business, a genuine succession question and operating value that can be carried forward. The most useful next step is not to rush into a decision, but to talk privately about the situation."
+          },
+          possible: {
+            title: "It would be worth a conversation.",
+            body: "You may not need to begin a formal handover now, but there are already elements worth preparing. If retirement is likely within the next few years, clarifying owner dependence, the core team and customer relationships early can make a future handover much easier."
+          },
+          early: {
+            title: "We may not be the right fit yet.",
+            body: "Based on these answers, the company may still be early-stage, relatively small, highly dependent on the owner, or the succession need may not yet be developed. That does not mean it is a poor business; Second Wind is simply most useful once there is a more established team and transferable operating base."
+          }
+        }
+      }
+    };
+
+    function currentSurveyLanguage() {
+      return document.documentElement.lang.startsWith("zh") ? "zh-Hant" : "en";
+    }
+
+    function renderSurveyLanguage() {
+      const copy = surveyCopy[currentSurveyLanguage()];
+      document.querySelectorAll("[data-survey-key]").forEach(el => {
+        const value = copy[el.dataset.surveyKey];
+        if (value) el.textContent = value;
+      });
+      if (document.getElementById("fit-question-screen") && !document.getElementById("fit-question-screen").hidden) renderFitQuestion();
+      if (document.getElementById("fit-result-screen") && !document.getElementById("fit-result-screen").hidden && fitResultKey) renderFitResult(fitResultKey);
+    }
+
     const supportedLanguages = ["zh-Hant", "en"];
 
     function detectBrowserLanguage() {
@@ -935,6 +1408,8 @@
         btn.setAttribute("aria-pressed", String(active));
       });
 
+      if (typeof renderSurveyLanguage === "function") renderSurveyLanguage();
+
       if (remember) localStorage.setItem("secondWindLanguage", language);
     }
 
@@ -944,6 +1419,171 @@
     document.querySelectorAll(".lang-btn").forEach(btn => {
       btn.addEventListener("click", () => applyLanguage(btn.dataset.lang, true));
     });
+
+    const fitModal = document.getElementById("fit-modal");
+    const fitStartScreen = document.getElementById("fit-start-screen");
+    const fitQuestionScreen = document.getElementById("fit-question-screen");
+    const fitResultScreen = document.getElementById("fit-result-screen");
+    const fitQuestionTitle = document.getElementById("fit-question-title");
+    const fitOptions = document.getElementById("fit-options");
+    const fitProgressCount = document.getElementById("fit-progress-count");
+    const fitProgressBar = document.getElementById("fit-progress-bar");
+    const fitBack = document.getElementById("fit-back");
+    let fitStep = 0;
+    let fitAnswers = [];
+    let fitResultKey = null;
+
+    function openFitModal(auto = false) {
+      if (!fitModal) return;
+      fitModal.classList.add("open");
+      fitModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("fit-modal-open");
+      if (auto) sessionStorage.setItem("secondWindFitAutoShown", "1");
+      setTimeout(() => {
+        const focusTarget = fitStartScreen.hidden ? fitOptions.querySelector("button") : document.getElementById("fit-start");
+        if (focusTarget) focusTarget.focus();
+      }, 60);
+    }
+
+    function closeFitModal() {
+      if (!fitModal) return;
+      fitModal.classList.remove("open");
+      fitModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("fit-modal-open");
+      sessionStorage.setItem("secondWindFitAutoShown", "1");
+    }
+
+    function resetFitSurvey() {
+      fitStep = 0;
+      fitAnswers = [];
+      fitResultKey = null;
+      fitStartScreen.hidden = false;
+      fitQuestionScreen.hidden = true;
+      fitResultScreen.hidden = true;
+      renderSurveyLanguage();
+    }
+
+    function startFitSurvey() {
+      fitStep = 0;
+      fitAnswers = [];
+      fitResultKey = null;
+      fitStartScreen.hidden = true;
+      fitQuestionScreen.hidden = false;
+      fitResultScreen.hidden = true;
+      renderFitQuestion();
+    }
+
+    function renderFitQuestion() {
+      const lang = currentSurveyLanguage();
+      const questions = surveyCopy[lang].questions;
+      const question = questions[fitStep];
+      if (!question) return;
+      fitQuestionTitle.textContent = question.text;
+      fitProgressCount.textContent = `${fitStep + 1} / ${questions.length}`;
+      fitProgressBar.style.width = `${((fitStep + 1) / questions.length) * 100}%`;
+      fitBack.style.visibility = fitStep === 0 ? "hidden" : "visible";
+      fitOptions.innerHTML = "";
+      question.options.forEach((option, optionIndex) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "fit-option";
+        button.innerHTML = `<span></span><span class="fit-option-arrow">→</span>`;
+        button.querySelector("span").textContent = option[0];
+        button.addEventListener("click", () => chooseFitOption(optionIndex, option[1], option[0]));
+        fitOptions.appendChild(button);
+      });
+    }
+
+    function chooseFitOption(optionIndex, score, label) {
+      fitAnswers[fitStep] = { optionIndex, score, label };
+      const questions = surveyCopy[currentSurveyLanguage()].questions;
+      if (fitStep < questions.length - 1) {
+        fitStep += 1;
+        renderFitQuestion();
+      } else {
+        calculateFitResult();
+      }
+    }
+
+    function calculateFitResult() {
+      const total = fitAnswers.reduce((sum, answer) => sum + Number(answer?.score || 0), 0);
+      fitResultKey = total >= 9 ? "strong" : total >= 6 ? "possible" : "early";
+      const hiddenResult = document.getElementById("qualification-result");
+      const hiddenAnswers = document.getElementById("qualification-answers");
+      if (hiddenResult) hiddenResult.value = `${fitResultKey} (${total.toFixed(2)}/12)`;
+      if (hiddenAnswers) hiddenAnswers.value = fitAnswers.map((a, i) => `Q${i + 1}: ${a?.label || ""}`).join(" | ");
+      fitQuestionScreen.hidden = true;
+      fitResultScreen.hidden = false;
+      renderFitResult(fitResultKey);
+    }
+
+    function renderFitResult(resultKey) {
+      const copy = surveyCopy[currentSurveyLanguage()];
+      const result = copy.results[resultKey];
+      if (!result) return;
+      document.getElementById("fit-result-title").textContent = result.title;
+      document.getElementById("fit-result-body").textContent = result.body;
+      const actions = document.getElementById("fit-result-actions");
+      actions.innerHTML = "";
+
+      if (resultKey === "strong" || resultKey === "possible") {
+        const contactButton = document.createElement("button");
+        contactButton.type = "button";
+        contactButton.className = "btn";
+        contactButton.textContent = copy.contactCTA;
+        contactButton.addEventListener("click", () => {
+          closeFitModal();
+          document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+          const message = document.getElementById("message");
+          if (message && !message.value.trim()) {
+            message.value = currentSurveyLanguage() === "zh-Hant"
+              ? `我完成了網站的初步評估，結果是「${result.title}」。想進一步了解交棒安排。`
+              : `I completed the website fit check and the result was “${result.title}”. I would like to discuss the handover further.`;
+          }
+        });
+        actions.appendChild(contactButton);
+      } else {
+        const criteriaButton = document.createElement("button");
+        criteriaButton.type = "button";
+        criteriaButton.className = "btn";
+        criteriaButton.textContent = copy.criteriaCTA;
+        criteriaButton.addEventListener("click", () => {
+          closeFitModal();
+          document.getElementById("criteria").scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        actions.appendChild(criteriaButton);
+      }
+
+      const restart = document.createElement("button");
+      restart.type = "button";
+      restart.className = "btn btn-outline";
+      restart.textContent = copy.restartCTA;
+      restart.addEventListener("click", startFitSurvey);
+      actions.appendChild(restart);
+    }
+
+    document.querySelectorAll(".fit-trigger").forEach(trigger => {
+      trigger.addEventListener("click", () => openFitModal(false));
+    });
+    document.querySelectorAll("[data-fit-close]").forEach(el => el.addEventListener("click", closeFitModal));
+    document.getElementById("fit-start")?.addEventListener("click", startFitSurvey);
+    fitBack?.addEventListener("click", () => {
+      if (fitStep > 0) {
+        fitStep -= 1;
+        renderFitQuestion();
+      }
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && fitModal?.classList.contains("open")) closeFitModal();
+    });
+
+    // Gentle auto-prompt: once per browser session, after the visitor has had time to understand the page.
+    setTimeout(() => {
+      if (!sessionStorage.getItem("secondWindFitAutoShown") && !fitModal?.classList.contains("open")) {
+        openFitModal(true);
+      }
+    }, 14000);
+
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
