@@ -119,6 +119,13 @@
     }
     .header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand-wrap { display: flex; align-items: center; gap: 12px; }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 12px; }
+    .brand-symbol { display: inline-flex; width: 46px; height: 28px; flex: 0 0 auto; }
+    .brand-symbol svg { display: block; width: 100%; height: 100%; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1; }
+    .brand-name { font-family: var(--serif); font-size: 1.24rem; letter-spacing: .02em; color: var(--ink); }
+    .brand-tag { margin-top: 5px; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .brand-mark {
       width: 35px;
       height: 35px;
@@ -131,6 +138,9 @@
       font-size: .8rem;
     }
     .brand { font-size: 1.24rem; letter-spacing: .03em; }
+    .footer-brand .brand-symbol { width: 38px; height: 24px; }
+    .footer-brand .brand-name { font-size: 1.02rem; }
+    .footer-brand .brand-tag { margin-top: 4px; font-size: .58rem; }
     .header-right { display: flex; align-items: center; gap: 20px; }
     .nav-links { display: flex; gap: 22px; list-style: none; color: var(--ink-soft); font-size: .83rem; }
     .nav-links a:hover { color: var(--wine); }
@@ -360,6 +370,9 @@
       .section { padding: 68px 0; }
       .header-inner { min-height: 66px; }
       .brand-mark { display: none; }
+      .brand-symbol { width: 40px; height: 24px; }
+      .brand-name { font-size: 1.08rem; }
+      .brand-tag { display: none; }
       .brand { font-size: 1.08rem; }
       .header-right { gap: 10px; }
       .language-switch { padding-left: 0; border-left: 0; }
@@ -615,8 +628,20 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand-wrap">
-        <div class="brand-mark">SW</div>
-        <div class="brand">Second Wind</div>
+        <span class="brand-lockup">
+          <span class="brand-symbol" aria-hidden="true">
+            <svg viewBox="0 0 120 72" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
+              <rect x="8" y="22" width="46" height="28" rx="14" fill="var(--tobacco)"/>
+              <rect x="40" y="22" width="22" height="28" rx="14" fill="var(--paper)" opacity="0.72"/>
+              <rect x="58" y="22" width="54" height="28" rx="14" fill="var(--wine)"/>
+              <rect x="54" y="30" width="12" height="12" rx="6" fill="var(--paper-2)" opacity="0.95"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Second Wind</span>
+            <span class="brand-tag">Business Handover Advisory</span>
+          </span>
+        </span>
       </a>
 
       <div class="header-right">
@@ -981,7 +1006,22 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>Second Wind · Hong Kong</div>
+      <div class="footer-brand">
+        <span class="brand-lockup">
+          <span class="brand-symbol" aria-hidden="true">
+            <svg viewBox="0 0 120 72" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
+              <rect x="8" y="22" width="46" height="28" rx="14" fill="var(--tobacco)"/>
+              <rect x="40" y="22" width="22" height="28" rx="14" fill="var(--paper)" opacity="0.72"/>
+              <rect x="58" y="22" width="54" height="28" rx="14" fill="var(--wine)"/>
+              <rect x="54" y="30" width="12" height="12" rx="6" fill="var(--paper-2)" opacity="0.95"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Second Wind</span>
+            <span class="brand-tag">Hong Kong</span>
+          </span>
+        </span>
+      </div>
       <div>© <span id="year"></span> Second Wind. <span data-i18n="footerRights">保留所有權利。</span></div>
     </div>
   </footer>
