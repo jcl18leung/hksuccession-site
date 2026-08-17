@@ -1577,12 +1577,44 @@
       if (event.key === "Escape" && fitModal?.classList.contains("open")) closeFitModal();
     });
 
-    // Gentle auto-prompt: once per browser session, after the visitor has had time to understand the page.
-    setTimeout(() => {
-      if (!sessionStorage.getItem("secondWindFitAutoShown") && !fitModal?.classList.contains("open")) {
-        openFitModal(true);
+    // Gentle auto-prompt: once per browser session.
+    // Open after 90 seconds OR after the visitor has scrolled through about 60% of the page, whichever happens first.
+    let fitAutoTimer = null;
+
+    function removeFitAutoPromptListeners() {
+      if (fitAutoTimer) {
+        clearTimeout(fitAutoTimer);
+        fitAutoTimer = null;
       }
-    }, 14000);
+      window.removeEventListener("scroll", handleFitAutoScroll);
+    }
+
+    function maybeOpenFitModalAutomatically() {
+      if (sessionStorage.getItem("secondWindFitAutoShown")) {
+        removeFitAutoPromptListeners();
+        return;
+      }
+
+      if (fitModal?.classList.contains("open")) return;
+
+      openFitModal(true);
+      removeFitAutoPromptListeners();
+    }
+
+    function handleFitAutoScroll() {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScroll <= 0) return;
+
+      const scrollRatio = window.scrollY / maxScroll;
+      if (scrollRatio >= 0.60) {
+        maybeOpenFitModalAutomatically();
+      }
+    }
+
+    if (!sessionStorage.getItem("secondWindFitAutoShown")) {
+      fitAutoTimer = setTimeout(maybeOpenFitModalAutomatically, 90000);
+      window.addEventListener("scroll", handleFitAutoScroll, { passive: true });
+    }
 
 
     document.getElementById("year").textContent = new Date().getFullYear();
