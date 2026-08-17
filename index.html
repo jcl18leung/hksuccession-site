@@ -3,68 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Second Wind｜香港企業交棒與傳承</title>
-
-  <meta
-    name="description"
-    content="Second Wind 專注協助香港年營業額約 1,000 至 2,000 萬港元的成熟企業老闆安排退休交棒，整理企業價值，尋找合適接班人，讓多年建立的招牌、團隊與客戶關係得以延續。"
-  />
+  <meta name="description" content="Second Wind 協助香港成熟企業老闆安排交棒、整理企業價值、篩選合適承接者，讓招牌、團隊、客戶與多年建立的生意得以延續。" />
 
   <style>
     :root {
-      --paper: #f7f1e7;
-      --paper-deep: #eee3d4;
-      --paper-soft: #fbf7f0;
-
-      --ink: #332a25;
-      --ink-soft: #62564e;
-      --muted: #8d8176;
-
-      --burgundy: #7c4a45;
-      --burgundy-dark: #643934;
-      --tobacco: #9b744f;
-      --olive: #7d8167;
-
-      --line: rgba(51, 42, 37, 0.12);
-      --line-strong: rgba(51, 42, 37, 0.22);
-
-      --success: #667b63;
-      --error: #9c5e56;
-
-      --max-width: 1180px;
-
-      --serif:
-        "Noto Serif HK",
-        "Noto Serif TC",
-        "Songti TC",
-        "PMingLiU",
-        Georgia,
-        serif;
-
-      --sans:
-        -apple-system,
-        BlinkMacSystemFont,
-        "PingFang HK",
-        "PingFang TC",
-        "Microsoft JhengHei",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+      --paper: #fbf7f1;
+      --paper-soft: #f5ede4;
+      --paper-deep: #ecdfcf;
+      --ink: #302824;
+      --ink-soft: #665951;
+      --muted: #8b7f75;
+      --wine: #7a504c;
+      --wine-dark: #63413d;
+      --tobacco: #a67850;
+      --olive: #7e846c;
+      --sage: #dfe2d5;
+      --line: rgba(48, 40, 36, 0.12);
+      --line-strong: rgba(48, 40, 36, 0.22);
+      --white: #fffdf9;
+      --shadow: 0 20px 55px rgba(82, 62, 48, 0.10);
+      --max: 1180px;
+      --radius-xl: 30px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --serif: "Noto Serif HK", "Noto Serif TC", "Songti TC", "PMingLiU", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "PingFang HK", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--paper);
+      background:
+        radial-gradient(circle at 8% 3%, rgba(166,120,80,.09), transparent 26%),
+        radial-gradient(circle at 94% 72%, rgba(122,80,76,.05), transparent 24%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--paper) 52%, #f6eee5 100%);
       color: var(--ink);
       font-family: var(--sans);
       line-height: 1.8;
@@ -72,991 +45,357 @@
       text-rendering: optimizeLegibility;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
 
-      background:
-        radial-gradient(
-          circle at 10% 8%,
-          rgba(155, 116, 79, 0.08),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 90% 70%,
-          rgba(124, 74, 69, 0.045),
-          transparent 30%
-        );
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(calc(100% - 40px), var(--max-width));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 108px 0;
-    }
-
-    .section + .section {
-      border-top: 1px solid var(--line);
-    }
+    .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    .section { padding: 104px 0; }
+    .section + .section { border-top: 1px solid var(--line); }
 
     .eyebrow {
       display: inline-block;
       margin-bottom: 16px;
-
-      color: var(--burgundy);
-
-      font-size: 0.75rem;
+      color: var(--wine);
+      font-size: .74rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
 
-    h1,
-    h2,
-    h3,
-    .brand,
-    .statement,
-    .process-word,
-    .pullquote {
+    h1, h2, h3, .brand, .quote, .process-word, .micro-stat strong {
       font-family: var(--serif);
       font-weight: 400;
     }
 
     h1 {
-      max-width: 860px;
-      font-size: clamp(3rem, 6.4vw, 5.8rem);
-      line-height: 1.1;
-      letter-spacing: -0.035em;
+      max-width: 830px;
+      font-size: clamp(3rem, 6.2vw, 5.7rem);
+      line-height: 1.08;
+      letter-spacing: -.035em;
     }
 
     h2 {
       max-width: 780px;
-      font-size: clamp(2.1rem, 4vw, 3.55rem);
-      line-height: 1.26;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      line-height: 1.24;
+      letter-spacing: -.02em;
     }
 
-    h3 {
-      font-size: 1.42rem;
-      line-height: 1.5;
-    }
-
-    p {
-      color: var(--ink-soft);
-    }
-
-    .lead {
-      max-width: 720px;
-      font-size: 1.1rem;
-      line-height: 1.95;
-    }
-
-    .section-heading {
-      margin-bottom: 58px;
-    }
-
-    .section-heading p {
-      margin-top: 22px;
-    }
-
-    /* Buttons */
+    h3 { font-size: 1.3rem; line-height: 1.48; }
+    p { color: var(--ink-soft); }
+    .lead { max-width: 760px; font-size: 1.08rem; line-height: 1.95; }
+    .section-heading { margin-bottom: 54px; }
+    .section-heading p { margin-top: 22px; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       min-height: 50px;
-      padding: 0 23px;
-
-      border: 1px solid var(--burgundy);
+      padding: 0 24px;
       border-radius: 999px;
-
-      background: var(--burgundy);
-      color: #fffaf3;
-
-      font-size: 0.88rem;
+      border: 1px solid var(--wine);
+      background: var(--wine);
+      color: #fff9f4;
+      font-size: .88rem;
       font-weight: 700;
-
-      transition:
-        background 180ms ease,
-        color 180ms ease,
-        border-color 180ms ease,
-        transform 180ms ease;
+      transition: .18s ease;
     }
-
-    .btn:hover {
-      background: var(--burgundy-dark);
-      border-color: var(--burgundy-dark);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--line-strong);
-    }
-
-    .btn-outline:hover {
-      background: var(--paper-deep);
-      border-color: var(--paper-deep);
-      color: var(--ink);
-    }
+    .btn:hover { background: var(--wine-dark); border-color: var(--wine-dark); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+    .btn-outline:hover { background: var(--paper-deep); border-color: var(--paper-deep); color: var(--ink); }
 
     /* Header */
-
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background: rgba(247, 241, 231, 0.93);
+      background: rgba(251,247,241,.92);
       border-bottom: 1px solid var(--line);
-
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
-
-    .header-inner {
-      min-height: 74px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 24px;
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand-wrap { display: flex; align-items: center; gap: 12px; }
     .brand-mark {
-      width: 34px;
-      height: 34px;
-
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
       display: grid;
       place-items: center;
-
       border: 1px solid var(--tobacco);
-      border-radius: 50%;
-
       color: var(--tobacco);
-
       font-family: var(--serif);
-      font-size: 0.8rem;
+      font-size: .8rem;
     }
-
-    .brand {
-      font-size: 1.28rem;
-      letter-spacing: 0.03em;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-
-      list-style: none;
-
-      color: var(--ink-soft);
-      font-size: 0.83rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--burgundy);
-    }
-
-    .language-switch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-
-      padding-left: 18px;
-
-      border-left: 1px solid var(--line);
-
-      color: var(--muted);
-      font-size: 0.74rem;
-    }
-
-    .lang-btn {
-      padding: 4px 2px;
-
-      border: 0;
-      background: transparent;
-
-      color: var(--muted);
-    }
-
-    .lang-btn.active,
-    .lang-btn:hover {
-      color: var(--burgundy);
-    }
+    .brand { font-size: 1.24rem; letter-spacing: .03em; }
+    .header-right { display: flex; align-items: center; gap: 20px; }
+    .nav-links { display: flex; gap: 22px; list-style: none; color: var(--ink-soft); font-size: .83rem; }
+    .nav-links a:hover { color: var(--wine); }
+    .language-switch { display: flex; align-items: center; gap: 6px; padding-left: 18px; border-left: 1px solid var(--line); color: var(--muted); font-size: .74rem; }
+    .lang-btn { border: 0; background: transparent; color: var(--muted); padding: 4px 2px; }
+    .lang-btn.active, .lang-btn:hover { color: var(--wine); }
 
     /* Hero */
-
-    .hero {
-      padding: 82px 0 102px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
-      gap: 70px;
-      align-items: center;
-    }
-
-    .hero-copy p {
-      max-width: 680px;
-      margin-top: 30px;
-
-      font-size: clamp(1.04rem, 1.5vw, 1.18rem);
-      line-height: 1.95;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-
-      margin-top: 35px;
-    }
-
-    .hero-note {
-      margin-top: 19px;
-
-      color: var(--muted);
-
-      font-size: 0.79rem;
-    }
-
-    .hero-visual {
-      position: relative;
-    }
+    .hero { padding: 84px 0 92px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(360px,.95fr); gap: 64px; align-items: center; }
+    .hero-copy p { margin-top: 28px; max-width: 700px; font-size: clamp(1.04rem,1.5vw,1.18rem); line-height: 1.95; }
+    .hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note { margin-top: 18px; color: var(--muted); font-size: .79rem; }
 
     .photo-frame {
       position: relative;
       overflow: hidden;
-
-      min-height: 600px;
-
-      border-radius: 24px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #cdb99e,
-          #af9272
-        );
-
-      box-shadow:
-        0 20px 60px rgba(78, 61, 46, 0.12);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      background: #d7c2aa;
     }
-
-    .photo-frame img {
-      height: 100%;
-      object-fit: cover;
-
-      filter:
-        saturate(0.82)
-        contrast(0.96)
-        brightness(0.98);
-
-      transition: transform 700ms ease;
-    }
-
-    .photo-frame:hover img {
-      transform: scale(1.015);
-    }
-
-    .photo-placeholder {
-      min-height: inherit;
-
-      display: flex;
-      align-items: flex-end;
-
-      padding: 28px;
-
-      background:
-        linear-gradient(
-          to top,
-          rgba(76, 56, 42, 0.22),
-          rgba(255, 255, 255, 0.04)
-        );
-    }
-
-    .photo-placeholder span {
-      max-width: 300px;
-
-      padding: 14px 16px;
-
-      border-radius: 12px;
-
-      background: rgba(247, 241, 231, 0.88);
-
-      color: var(--ink-soft);
-
-      font-size: 0.76rem;
-      line-height: 1.6;
-    }
-
+    .hero-photo img { height: 610px; object-fit: cover; object-position: center; }
     .hero-card {
       position: absolute;
-      left: -32px;
-      bottom: 30px;
-
-      width: min(290px, 82%);
-
-      padding: 22px 24px;
-
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      padding: 18px 20px;
       border-radius: 16px;
-
-      background: rgba(251, 247, 240, 0.96);
-
-      box-shadow:
-        0 14px 40px rgba(73, 56, 43, 0.12);
+      background: rgba(255,253,249,.93);
+      backdrop-filter: blur(5px);
     }
+    .hero-card small { display: block; margin-bottom: 6px; color: var(--wine); font-size: .68rem; font-weight: 700; letter-spacing: .08em; }
+    .hero-card strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.17rem; line-height: 1.48; }
 
-    .hero-card small {
-      display: block;
-
-      margin-bottom: 7px;
-
-      color: var(--burgundy);
-
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-    }
-
-    .hero-card strong {
-      display: block;
-
-      color: var(--ink);
-
-      font-family: var(--serif);
-      font-size: 1.28rem;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    /* Intro */
-
-    .context-grid {
+    .trust-row {
       display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: 90px;
-      align-items: start;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+      margin-top: 34px;
     }
-
-    .context-copy p + p {
-      margin-top: 20px;
-    }
-
-    .statement {
-      margin-top: 38px;
-      padding: 32px 34px;
-
-      border-left: 3px solid var(--tobacco);
-      border-radius: 0 14px 14px 0;
-
-      background: var(--paper-deep);
-
-      color: var(--ink);
-
-      font-size: clamp(1.4rem, 2.5vw, 1.95rem);
-      line-height: 1.58;
-    }
-
-    /* Criteria */
-
-    .criteria-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .criteria-card {
-      min-height: 260px;
-
-      padding: 34px;
-
+    .trust-chip {
+      padding: 18px 18px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.48);
       border: 1px solid var(--line);
-      border-radius: 18px;
-
-      background: var(--paper-soft);
-
-      transition:
-        transform 180ms ease,
-        box-shadow 180ms ease;
     }
-
-    .criteria-card:hover {
-      transform: translateY(-2px);
-
-      box-shadow:
-        0 12px 32px rgba(78, 61, 46, 0.08);
-    }
-
-    .criteria-number {
-      margin-bottom: 30px;
-
-      color: var(--tobacco);
-
-      font-family: var(--serif);
-      font-size: 0.92rem;
-    }
-
-    .criteria-card h3 {
-      margin-bottom: 13px;
-    }
-
-    /* Story image band */
-
-    .story-band {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 58px;
-      align-items: center;
-    }
-
-    .story-photo {
-      min-height: 470px;
-      border-radius: 22px;
-    }
-
-    .story-copy p {
-      margin-top: 23px;
-    }
-
-    .quiet-list {
-      list-style: none;
-      margin-top: 28px;
-    }
-
-    .quiet-list li {
-      position: relative;
-
-      padding: 13px 0 13px 23px;
-
-      border-top: 1px solid var(--line);
-
-      color: var(--ink-soft);
-    }
-
-    .quiet-list li::before {
-      content: "";
-
-      position: absolute;
-      left: 2px;
-      top: 24px;
-
-      width: 6px;
-      height: 6px;
-
+    .trust-chip .icon {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-
-      background: var(--olive);
-    }
-
-    /* Process */
-
-    .timeline {
-      position: relative;
-      margin-top: 10px;
-    }
-
-    .timeline::before {
-      content: "";
-
-      position: absolute;
-      left: 26px;
-      top: 18px;
-      bottom: 18px;
-
-      width: 1px;
-
-      background: var(--line-strong);
-    }
-
-    .timeline-item {
-      position: relative;
-
-      display: grid;
-      grid-template-columns: 54px 140px 1fr;
-      gap: 28px;
-
-      padding: 26px 0 38px;
-    }
-
-    .timeline-dot {
-      position: relative;
-      z-index: 2;
-
-      width: 54px;
-      height: 54px;
-
       display: grid;
       place-items: center;
-
-      border-radius: 50%;
-
+      margin-bottom: 10px;
       background: var(--paper-deep);
-      border: 1px solid rgba(155, 116, 79, 0.35);
-
-      color: var(--tobacco);
-
-      font-family: var(--serif);
-      font-size: 0.9rem;
-    }
-
-    .process-word {
-      padding-top: 8px;
-
-      font-size: 1.6rem;
-      color: var(--ink);
-    }
-
-    .timeline-item p {
-      padding-top: 8px;
-      max-width: 640px;
-    }
-
-    /* Founder */
-
-    .founder-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .founder-photo {
-      min-height: 580px;
-      border-radius: 22px;
-    }
-
-    .founder-copy p {
-      margin-top: 20px;
-    }
-
-    .pullquote {
-      margin: 30px 0 4px;
-      padding: 25px 0;
-
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-
-      color: var(--burgundy);
-
-      font-size: 1.3rem;
-      line-height: 1.65;
-    }
-
-    /* Fee */
-
-    .fee-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .fee-copy p {
-      margin-top: 21px;
-    }
-
-    .fee-panel {
-      padding: 36px 38px;
-
-      border-radius: 18px;
-
-      background: #eadfce;
-    }
-
-    .fee-panel small {
-      display: block;
-
-      margin-bottom: 8px;
-
-      color: var(--burgundy);
-
+      color: var(--wine);
+      font-size: .78rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      font-size: 0.7rem;
     }
+    .trust-chip strong { display: block; margin-bottom: 4px; font-size: .95rem; }
+    .trust-chip p { font-size: .89rem; line-height: 1.65; }
 
-    .fee-panel strong {
-      display: block;
-
-      margin-bottom: 14px;
-
+    /* Story */
+    .story-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 72px; align-items: start; }
+    .story-copy p + p { margin-top: 20px; }
+    .quote {
+      margin-top: 34px;
+      padding: 30px 34px;
+      border-left: 3px solid var(--tobacco);
+      border-radius: 0 14px 14px 0;
+      background: var(--paper-deep);
       color: var(--ink);
-
-      font-family: var(--serif);
-      font-size: 2.4rem;
-      font-weight: 400;
+      font-size: clamp(1.35rem,2.5vw,1.95rem);
+      line-height: 1.55;
     }
 
-    .fee-panel p {
-      color: var(--ink-soft);
+    /* Fit / Screening */
+    .fit-band {
+      padding: 30px;
+      margin-top: 34px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(223,226,213,.85), rgba(245,237,228,.92));
+      border: 1px solid rgba(126,132,108,.18);
     }
+    .fit-band h3 { margin-bottom: 8px; }
+    .fit-band p { font-size: .95rem; }
+
+    .criteria-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .criteria-card {
+      min-height: 250px;
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.48);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(83,62,46,.04);
+    }
+    .criteria-number { margin-bottom: 26px; color: var(--tobacco); font-family: var(--serif); font-size: .92rem; }
+    .criteria-card h3 { margin-bottom: 12px; }
+
+    /* Value */
+    .value-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 64px; align-items: center; }
+    .value-grid .photo-frame img { height: 500px; object-fit: cover; }
+    .value-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-top: 28px; }
+    .value-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+    .value-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .value-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--sage); color: var(--olive); font-size: .85rem; font-weight: 700;
+    }
+    .value-card p { font-size: .9rem; }
+
+    /* Process */
+    .process-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 66px; align-items: start; }
+    .process-side { position: sticky; top: 108px; }
+    .process-side .photo-frame { margin-top: 24px; }
+    .process-side img { height: 460px; object-fit: cover; }
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 26px; top: 12px; bottom: 12px; width: 1px; background: var(--line-strong); }
+    .timeline-item { position: relative; display: grid; grid-template-columns: 54px 125px 1fr; gap: 24px; padding: 24px 0 36px; }
+    .timeline-dot {
+      position: relative; z-index: 2; width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--paper-deep); border: 1px solid rgba(166,120,80,.35); color: var(--tobacco); font-family: var(--serif); font-size: .9rem;
+    }
+    .process-word { padding-top: 8px; font-size: 1.55rem; }
+    .timeline-item p { padding-top: 8px; }
+
+    /* Advisory consultancy */
+    .advisory-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 64px; align-items: center; }
+    .micro-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 28px; }
+    .micro-stat {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.46);
+      border: 1px solid var(--line);
+    }
+    .micro-stat strong { display: block; color: var(--wine); font-size: 1.22rem; margin-bottom: 6px; }
+    .micro-stat p { font-size: .88rem; }
+    .advisory-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+    }
+    .advisory-card p + p { margin-top: 17px; }
+
+    /* Concerns */
+    .concerns-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .concern-card {
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.48);
+      border: 1px solid var(--line);
+    }
+    .concern-card h3 { font-size: 1.08rem; margin-bottom: 10px; }
+    .concern-card p { font-size: .93rem; }
 
     /* Contact */
-
-    .contact-shell {
-      padding: 56px;
-
-      border-radius: 24px;
-
-      background: #efe4d5;
+    .contact-panel {
+      padding: 48px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, #efe4d5 0%, #e8d8c6 100%);
+      box-shadow: var(--shadow);
     }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 70px;
-      align-items: start;
-    }
-
-    .contact-copy p {
-      margin-top: 22px;
-    }
-
-    .privacy-list {
-      margin-top: 30px;
-    }
-
-    .privacy-item {
-      padding: 15px 0;
-
-      border-top: 1px solid rgba(51, 42, 37, 0.12);
-    }
-
-    .privacy-item strong {
-      display: block;
-      margin-bottom: 4px;
-
-      color: var(--ink);
-
-      font-family: var(--serif);
-      font-weight: 400;
-    }
+    .contact-grid { display: grid; grid-template-columns: .84fr 1.16fr; gap: 68px; align-items: start; }
+    .contact-copy p { margin-top: 20px; }
+    .privacy-list { margin-top: 28px; }
+    .privacy-item { padding: 14px 0; border-top: 1px solid rgba(48,40,36,.11); }
+    .privacy-item strong { display: block; margin-bottom: 4px; font-family: var(--serif); font-weight: 400; }
 
     form {
       display: grid;
       gap: 18px;
-
-      padding: 34px;
-
-      border-radius: 18px;
-
-      background: rgba(255, 255, 255, 0.48);
-
-      border: 1px solid rgba(51, 42, 37, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.52);
+      border: 1px solid var(--line);
     }
-
-    .field {
-      display: grid;
-      gap: 7px;
-    }
-
-    label {
-      color: var(--ink-soft);
-
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-
-    input,
-    textarea {
+    .field { display: grid; gap: 7px; }
+    label { color: var(--ink-soft); font-size: .78rem; font-weight: 600; }
+    input, textarea {
       width: 100%;
-
       padding: 14px 15px;
-
-      border: 1px solid rgba(51, 42, 37, 0.18);
-      border-radius: 10px;
-
+      border-radius: 12px;
+      border: 1px solid rgba(48,40,36,.18);
       outline: none;
-
-      background: rgba(255, 255, 255, 0.64);
+      background: rgba(255,255,255,.74);
       color: var(--ink);
     }
+    input:focus, textarea:focus { border-color: var(--wine); background: #fffdfa; }
+    input::placeholder, textarea::placeholder { color: #9b9086; }
+    textarea { min-height: 150px; resize: vertical; }
+    .form-note { color: var(--muted); font-size: .76rem; line-height: 1.65; }
+    .form-status { min-height: 20px; font-size: .82rem; }
+    .form-status.success { color: #617962; }
+    .form-status.error { color: #9a6259; }
 
-    input:focus,
-    textarea:focus {
-      border-color: var(--burgundy);
-      background: #fffdf9;
-    }
+    footer { padding: 32px 0; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; color: var(--muted); font-size: .76rem; }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: #9a8f85;
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .form-note {
-      color: var(--muted);
-      font-size: 0.76rem;
-      line-height: 1.65;
-    }
-
-    .form-status {
-      min-height: 20px;
-      font-size: 0.82rem;
-    }
-
-    .form-status.success {
-      color: var(--success);
-    }
-
-    .form-status.error {
-      color: var(--error);
-    }
-
-    /* Footer */
-
-    footer {
-      padding: 32px 0;
-
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-
-      color: var(--muted);
-
-      font-size: 0.76rem;
-    }
-
-    /* Fade */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-
-      transition:
-        opacity 650ms ease,
-        transform 650ms ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 {
-      transition-delay: 90ms;
-    }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .09s; }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
     }
 
-    /* Responsive */
-
-    @media (max-width: 960px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid,
-      .context-grid,
-      .story-band,
-      .founder-grid,
-      .fee-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-      }
-
-      .hero-card {
-        left: 20px;
-      }
-
-      .photo-frame,
-      .founder-photo {
-        min-height: 500px;
-      }
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-grid, .story-grid, .value-grid, .process-grid, .advisory-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .process-side { position: static; }
+      .criteria-grid, .value-list { grid-template-columns: 1fr; }
+      .trust-row, .micro-stats, .concerns-grid { grid-template-columns: 1fr; }
+      .hero-photo img { height: 520px; }
+      .value-grid .photo-frame img, .process-side img { height: 420px; }
     }
 
     @media (max-width: 680px) {
-      .container {
-        width: min(calc(100% - 28px), var(--max-width));
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
-      .header-inner {
-        min-height: 66px;
-      }
-
-      .brand-mark {
-        display: none;
-      }
-
-      .brand {
-        font-size: 1.08rem;
-      }
-
-      .header-right {
-        gap: 10px;
-      }
-
-      .language-switch {
-        padding-left: 0;
-        border-left: 0;
-      }
-
-      .header-cta {
-        min-height: 40px;
-        padding: 0 12px;
-        font-size: 0.72rem;
-      }
-
-      .hero {
-        padding: 60px 0 72px;
-      }
-
-      h1 {
-        font-size: clamp(2.75rem, 13vw, 4.35rem);
-      }
-
-      h2 {
-        font-size: clamp(2rem, 9vw, 2.9rem);
-      }
-
-      .hero-actions {
-        display: grid;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .photo-frame,
-      .story-photo,
-      .founder-photo {
-        min-height: 390px;
-      }
-
-      .criteria-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 48px 1fr;
-        gap: 16px;
-      }
-
-      .process-word {
-        grid-column: 2;
-      }
-
-      .timeline-item p {
-        grid-column: 2;
-      }
-
-      .timeline::before {
-        left: 24px;
-      }
-
-      .timeline-dot {
-        width: 48px;
-        height: 48px;
-      }
-
-      .contact-shell {
-        padding: 28px 20px;
-      }
-
-      form {
-        padding: 24px 20px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 6px;
-      }
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .section { padding: 68px 0; }
+      .header-inner { min-height: 66px; }
+      .brand-mark { display: none; }
+      .brand { font-size: 1.08rem; }
+      .header-right { gap: 10px; }
+      .language-switch { padding-left: 0; border-left: 0; }
+      .header-cta { min-height: 40px; padding: 0 12px; font-size: .72rem; }
+      h1 { font-size: clamp(2.7rem, 12.4vw, 4.3rem); }
+      h2 { font-size: clamp(2rem, 8.8vw, 2.9rem); }
+      .hero { padding: 62px 0 72px; }
+      .hero-actions { display: grid; }
+      .hero-actions .btn { width: 100%; }
+      .hero-photo img { height: 400px; }
+      .hero-card { left: 16px; right: 16px; bottom: 16px; }
+      .timeline::before { left: 24px; }
+      .timeline-item { grid-template-columns: 48px 1fr; gap: 16px; }
+      .timeline-dot { width: 48px; height: 48px; }
+      .process-word { grid-column: 2; }
+      .timeline-item p { grid-column: 2; }
+      .contact-panel { padding: 28px 20px; }
+      form { padding: 22px 18px; }
+      .footer-inner { flex-direction: column; gap: 6px; }
     }
   </style>
 </head>
-
 <body>
-
   <header class="site-header">
     <div class="container header-inner">
-
       <a href="#top" class="brand-wrap">
         <div class="brand-mark">SW</div>
         <div class="brand">Second Wind</div>
       </a>
 
       <div class="header-right">
-
         <nav>
           <ul class="nav-links">
             <li><a href="#criteria" data-i18n="navCriteria">我們尋找的企業</a></li>
             <li><a href="#process" data-i18n="navProcess">交棒流程</a></li>
-            <li><a href="#founder" data-i18n="navFounder">關於我</a></li>
-            <li><a href="#fees" data-i18n="navFees">收費</a></li>
+            <li><a href="#advisory" data-i18n="navAdvisory">顧問方式</a></li>
           </ul>
         </nav>
 
@@ -1066,1281 +405,607 @@
           <button type="button" class="lang-btn" data-lang="en">EN</button>
         </div>
 
-        <a href="#contact" class="btn header-cta" data-i18n="headerCTA">
-          私下聊聊
-        </a>
-
+        <a href="#contact" class="btn header-cta" data-i18n="headerCTA">私下聊聊</a>
       </div>
     </div>
   </header>
 
-
   <main id="top">
-
-    <!-- HERO -->
-
     <section class="hero">
       <div class="container hero-grid">
-
         <div class="hero-copy reveal">
-
-          <span class="eyebrow" data-i18n="heroEyebrow">
-            香港企業交棒 · BUSINESS SUCCESSION
-          </span>
-
-          <h1 data-i18n="heroTitle">
-            三十年守下來的招牌，值得交到對的人手上。
-          </h1>
-
-          <p data-i18n="heroBody">
-            專注 1,000 至 2,000 萬營業額的成熟企業交接。
-            不為子女添負，也不讓多年建立的客戶、團隊和招牌突然停在這一代。
-          </p>
+          <span class="eyebrow" data-i18n="heroEyebrow">香港企業交棒 · BUSINESS SUCCESSION</span>
+          <h1 data-i18n="heroTitle">把三十年守下來的招牌，交到對的人手上。</h1>
+          <p data-i18n="heroBody">Second Wind 協助香港成熟企業安排交棒與延續。當老闆準備退下來時，我們幫忙整理公司真正的價值，並尋找能夠守住團隊、客戶與招牌的下一手。</p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn" data-i18n="heroCTA">
-              私下談談交棒
-            </a>
-
-            <a href="#criteria" class="btn btn-outline" data-i18n="heroSecondary">
-              看看是否合適
-            </a>
+            <a href="#contact" class="btn" data-i18n="heroCTA">私下談談交棒</a>
+            <a href="#criteria" class="btn btn-outline" data-i18n="heroSecondary">看看是否合適</a>
           </div>
 
-          <div class="hero-note" data-i18n="heroNote">
-            保密處理 · 不催促 · 不公開放盤 · 先了解，再決定
-          </div>
+          <div class="hero-note" data-i18n="heroNote">保密處理 · 不催促 · 不公開放盤 · 先了解，再決定</div>
 
-        </div>
-
-
-        <div class="hero-visual reveal delay-1">
-
-          <div class="photo-frame">
-
-            <!--
-              建議使用真人照片：
-              60–70 歲香港企業老闆，在自己公司的辦公室、
-              倉庫、會議室、陳列室或營運場地內。
-              應該是成熟企業主，不是技工或工匠。
-
-              Replace this placeholder with:
-              <img src="images/hk-business-owner.jpg" alt="Established Hong Kong business owner">
-            -->
-
-            <div class="photo-placeholder">
-              <span data-i18n="heroPhotoNote">
-                建議主圖：一位成熟香港企業老闆，在自己經營多年的辦公室、
-                倉庫或公司場地內。自然、有故事感，不需要望鏡頭擺姿勢。
-              </span>
+          <div class="trust-row">
+            <div class="trust-chip">
+              <div class="icon">01</div>
+              <strong data-i18n="trust1Title">守招牌</strong>
+              <p data-i18n="trust1Body">找能把原本好的東西繼續做好的人，不只是找出價的人。</p>
             </div>
-
+            <div class="trust-chip">
+              <div class="icon">02</div>
+              <strong data-i18n="trust2Title">穩團隊</strong>
+              <p data-i18n="trust2Body">員工、主管和長年客戶，往往就是公司最真實的價值。</p>
+            </div>
+            <div class="trust-chip">
+              <div class="icon">03</div>
+              <strong data-i18n="trust3Title">減麻煩</strong>
+              <p data-i18n="trust3Body">資料整理、初步篩選和配對由我們處理，老闆不用突然學一套交易語言。</p>
+            </div>
           </div>
-
-
-          <div class="hero-card">
-            <small data-i18n="heroCardLabel">
-              SECOND WIND 的角色
-            </small>
-
-            <strong data-i18n="heroCardText">
-              不是替您把公司「放盤」。
-              是幫您把這一棒交好。
-            </strong>
-          </div>
-
         </div>
 
+        <div class="photo-frame hero-photo reveal delay-1">
+          <img src="hero-owner.png" alt="Established Hong Kong business owner" />
+          <div class="hero-card">
+            <small data-i18n="heroCardLabel">SECOND WIND 的角色</small>
+            <strong data-i18n="heroCardText">不是把公司掛出去等人問價。是幫您把這一棒交得穩、交得安心。</strong>
+          </div>
+        </div>
       </div>
     </section>
-
-
-    <!-- CONTEXT -->
 
     <section class="section">
-      <div class="container context-grid">
-
+      <div class="container story-grid">
         <div class="reveal">
-
-          <span class="eyebrow" data-i18n="storyEyebrow">
-            做了幾十年生意之後
-          </span>
-
-          <h2 data-i18n="storyTitle">
-            最難的，往往不是做到退休。是退休之後怎樣辦。
-          </h2>
-
+          <span class="eyebrow" data-i18n="storyEyebrow">做了幾十年生意之後</span>
+          <h2 data-i18n="storyTitle">最難的，往往不是做到退休。是退休之後怎樣辦。</h2>
         </div>
 
-
-        <div class="context-copy reveal delay-1">
-
-          <p data-i18n="storyP1">
-            香港有很多好公司，沒有什麼華麗故事。
-            做的是專業供應、設備、工程服務、維修保養、物流、
-            檢測、分銷，或者某個外行人甚至沒聽過的 B2B 市場。
-          </p>
-
-          <p data-i18n="storyP2">
-            公司每年做一千多萬生意，有熟客、有團隊、有供應商，
-            有人已經跟了老闆十幾二十年。
-            生意本身沒有問題，只是老闆到了想放慢腳步的時候。
-          </p>
-
-          <p data-i18n="storyP3">
-            子女有自己的生活，也未必想接。
-            但直接關門又太可惜。
-            真正需要的，是一個有能力、有耐性，
-            也願意尊重原有文化的人接下去。
-          </p>
-
-          <div class="statement" data-i18n="storyStatement">
-            交棒，不只是找一個買家。
-            是找下一個願意把公司繼續做好的人。
-          </div>
-
+        <div class="story-copy reveal delay-1">
+          <p data-i18n="storyP1">香港有很多好公司，沒有什麼華麗故事。做的是專業供應、設備、維修保養、工程服務、物流、分銷、檢測，或某個很窄但很穩定的 B2B 市場。</p>
+          <p data-i18n="storyP2">公司本身有客戶、有團隊、有供應商，也有多年累積的經驗與信任。問題不在生意，而在於當老闆想退下來時，下一步應該怎樣安排。</p>
+          <p data-i18n="storyP3">有些公司規模不小，不適合一般小生意平台；有些又未必需要走大型機構式流程。這時候，最需要的是一種懂營運、懂溝通、也懂整理的交棒顧問方式。</p>
+          <div class="quote" data-i18n="storyQuote">交棒，不只是找一個買家。是找下一個願意把公司繼續做好的人。</div>
         </div>
-
       </div>
     </section>
-
-
-    <!-- CRITERIA -->
 
     <section class="section" id="criteria">
       <div class="container">
-
         <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="criteriaEyebrow">我們尋找的企業</span>
+          <h2 data-i18n="criteriaTitle">我們尋找的，是值得延續的實業。</h2>
+          <p class="lead" data-i18n="criteriaIntro">我們不以一個營業額數字一刀切。重要的是公司已經有一定規模、客戶基礎和可交接的營運能力，而不是仍然主要靠老闆一個人撐住。</p>
 
-          <span class="eyebrow" data-i18n="criteriaEyebrow">
-            我們尋找的企業
-          </span>
-
-          <h2 data-i18n="criteriaTitle">
-            我們尋找的，是值得延續的實業。
-          </h2>
-
-          <p class="lead" data-i18n="criteriaIntro">
-            不一定新潮，也不需要講漂亮故事。
-            重要的是這盤生意有根基、有需要，
-            下一個十年仍然值得有人繼續做。
-          </p>
-
+          <div class="fit-band">
+            <h3 data-i18n="fitTitle">我們偏好的，是「成熟企業」，不是「細小生意」。</h3>
+            <p data-i18n="fitBody">如果公司已有穩定團隊、長期客戶、可辨識的營運流程和持續現金流，不論規模略小或更大，都值得先談。相反，如果生意仍然高度依賴老闆本人、未形成團隊或基礎仍很早期，我們未必是最合適的顧問。</p>
+          </div>
         </div>
 
-
         <div class="criteria-grid">
-
           <article class="criteria-card reveal">
             <div class="criteria-number">01</div>
-
-            <h3 data-i18n="criteria1Title">
-              老闆是真的想退休
-            </h3>
-
-            <p data-i18n="criteria1Body">
-              做了幾十年，到了想放慢腳步的時候。
-              子女有自己的路，沒有意願接手，
-              公司需要一個新的掌舵人。
-            </p>
+            <h3 data-i18n="criteria1Title">老闆真心想退下來</h3>
+            <p data-i18n="criteria1Body">做了幾十年，到了想放慢腳步的時候。子女未必想接，公司需要一個新的掌舵人。</p>
           </article>
-
 
           <article class="criteria-card reveal delay-1">
             <div class="criteria-number">02</div>
-
-            <h3 data-i18n="criteria2Title">
-              行業穩定，需求還在
-            </h3>
-
-            <p data-i18n="criteria2Body">
-              不是追潮流，也不是正在消失的行業。
-              未來 10 至 15 年，
-              市場仍然需要這項產品、服務或能力。
-            </p>
+            <h3 data-i18n="criteria2Title">行業穩定，仍有需求</h3>
+            <p data-i18n="criteria2Body">不是追潮流，也不是夕陽到只剩最後一口氣。未來十年，市場仍然需要這項服務、產品或能力。</p>
           </article>
-
 
           <article class="criteria-card reveal">
             <div class="criteria-number">03</div>
-
-            <h3 data-i18n="criteria3Title">
-              有真正的本地門檻
-            </h3>
-
-            <p data-i18n="criteria3Body">
-              本地牌照、技術團隊、穩定 B2B 合約、
-              客戶關係、即時服務能力或多年供應網絡，
-              不是單靠更便宜的人手就能取代。
-            </p>
+            <h3 data-i18n="criteria3Title">有真正的本地門檻</h3>
+            <p data-i18n="criteria3Body">本地牌照、長期 B2B 合約、技術團隊、供應關係、服務速度或客戶信任，都不是更便宜的人手就能直接取代。</p>
           </article>
-
 
           <article class="criteria-card reveal delay-1">
             <div class="criteria-number">04</div>
-
-            <h3 data-i18n="criteria4Title">
-              現金流穩定，數目看得懂
-            </h3>
-
-            <p data-i18n="criteria4Body">
-              正常做生意，正常賺錢。
-              不靠複雜財技，也不需要講一套很漂亮的投資故事。
-            </p>
+            <h3 data-i18n="criteria4Title">營運扎實，數目看得懂</h3>
+            <p data-i18n="criteria4Body">我們偏好有真實營運、有穩定現金流、結構清楚的公司，而不是只靠故事支撐的生意。</p>
           </article>
-
         </div>
-
       </div>
     </section>
-
-
-    <!-- VALUE -->
 
     <section class="section">
-      <div class="container story-band">
+      <div class="container value-grid">
+        <div class="photo-frame reveal">
+          <img src="company-owner.png" alt="Established company owner in office with warehouse backdrop" />
+        </div>
 
-        <div class="photo-frame story-photo reveal">
+        <div class="reveal delay-1">
+          <span class="eyebrow" data-i18n="valueEyebrow">真正值錢的，未必在報表第一頁</span>
+          <h2 data-i18n="valueTitle">一盤老生意的價值，往往藏在細節裡。</h2>
+          <p class="lead" data-i18n="valueIntro">牌照、合約、主管、供應商、租約、交付能力、口碑、老闆自己在流程中的角色——這些才是交棒時真正要整理清楚的東西。</p>
 
-          <!--
-            Suggested image:
-            established B2B business environment,
-            e.g. office + warehouse, showroom, logistics company,
-            engineering / distribution premises.
-
-            Replace with:
-            <img src="images/company-premises.jpg" alt="Established Hong Kong B2B company">
-          -->
-
-          <div class="photo-placeholder">
-            <span data-i18n="businessPhotoNote">
-              建議照片：成熟 B2B 企業環境，例如辦公室連倉庫、
-              商業設備陳列室、分銷公司或物流企業。
-              重點是「有規模、有團隊、有歷史」，而不是工匠手作感。
-            </span>
+          <div class="value-list">
+            <div class="value-card">
+              <div class="value-head"><div class="value-icon">牌</div><h3 data-i18n="value1Title">牌照與合規</h3></div>
+              <p data-i18n="value1Body">哪些牌照、資格或認證真正支撐公司的競爭力，以及承接後如何延續。</p>
+            </div>
+            <div class="value-card">
+              <div class="value-head"><div class="value-icon">人</div><h3 data-i18n="value2Title">核心團隊</h3></div>
+              <p data-i18n="value2Body">哪些主管和骨幹真正撐住日常營運，留下他們比什麼都重要。</p>
+            </div>
+            <div class="value-card">
+              <div class="value-head"><div class="value-icon">客</div><h3 data-i18n="value3Title">客戶關係</h3></div>
+              <p data-i18n="value3Body">哪些客戶關係屬於公司，哪些仍然主要建基於老闆本人。</p>
+            </div>
+            <div class="value-card">
+              <div class="value-head"><div class="value-icon">供</div><h3 data-i18n="value4Title">供應與交付</h3></div>
+              <p data-i18n="value4Body">供應商條件、租約、設備與交付能力，都是承接者真正會看重的基本盤。</p>
+            </div>
           </div>
-
         </div>
-
-
-        <div class="story-copy reveal delay-1">
-
-          <span class="eyebrow" data-i18n="valueEyebrow">
-            真正值錢的，未必在報表第一頁
-          </span>
-
-          <h2 data-i18n="valueTitle">
-            一盤做了二三十年的生意，價值往往藏在細節裡。
-          </h2>
-
-          <p data-i18n="valueBody">
-            老闆做慣了，很多事情覺得是理所當然。
-            但對下一個接手的人來說，
-            這些才是真正值得接下這間公司的原因。
-          </p>
-
-          <ul class="quiet-list">
-            <li data-i18n="value1">
-              做了十幾二十年的長期客戶
-            </li>
-
-            <li data-i18n="value2">
-              不容易重新建立的牌照、認證和供應關係
-            </li>
-
-            <li data-i18n="value3">
-              跟公司多年的主管、技術人員和核心員工
-            </li>
-
-            <li data-i18n="value4">
-              穩定的租約、商業合約和客戶習慣
-            </li>
-
-            <li data-i18n="value5">
-              行內人知道，但財務報表不會告訴你的信譽
-            </li>
-          </ul>
-
-        </div>
-
       </div>
     </section>
-
-
-    <!-- PROCESS -->
 
     <section class="section" id="process">
-      <div class="container">
+      <div class="container process-grid">
+        <div class="process-side reveal">
+          <span class="eyebrow" data-i18n="processEyebrow">怎樣交這一棒</span>
+          <h2 data-i18n="processTitle">您繼續顧生意。整理和配對，我們來做。</h2>
+          <p class="lead" data-i18n="processIntro">不需要學一套併購術語，也不需要自己摸索應該準備什麼。我們把交棒前最難的部分，拆成清楚可行的幾步。</p>
 
-        <div class="section-heading reveal">
-
-          <span class="eyebrow" data-i18n="processEyebrow">
-            怎樣交這一棒
-          </span>
-
-          <h2 data-i18n="processTitle">
-            您繼續做好生意。整理和配對，我們來做。
-          </h2>
-
-          <p class="lead" data-i18n="processIntro">
-            不需要學併購術語，也不用自己整理成一本厚厚的文件。
-            我們把公司真正重要的東西整理清楚，
-            讓合適的人一看就明白。
-          </p>
-
+          <div class="photo-frame">
+            <img src="consultation-meeting.png" alt="Private advisory meeting" />
+          </div>
         </div>
 
-
-        <div class="timeline">
-
-          <div class="timeline-item reveal">
+        <div class="timeline reveal delay-1">
+          <div class="timeline-item">
             <div class="timeline-dot">01</div>
-
-            <div class="process-word" data-i18n="process1Word">
-              傾
-            </div>
-
-            <p data-i18n="process1Body">
-              先坐下來談。您想幾時退、最放心不下的是什麼、
-              公司有什麼地方是您最希望新的人不要亂改。
-              第一次不需要準備任何文件。
-            </p>
+            <div class="process-word" data-i18n="process1Word">傾</div>
+            <p data-i18n="process1Body">先坐下來談，了解老闆為什麼想退、幾時想退，以及最放心不下的是招牌、團隊、客戶，還是交接後的安排。</p>
           </div>
 
-
-          <div class="timeline-item reveal">
+          <div class="timeline-item">
             <div class="timeline-dot">02</div>
-
-            <div class="process-word" data-i18n="process2Word">
-              整理
-            </div>
-
-            <p data-i18n="process2Body">
-              我們把財務、客戶、合約、員工、牌照、
-              租約、設備和老闆本人的角色逐項整理。
-              把「老闆心裡知道」的事情，變成別人能理解的公司。
-            </p>
+            <div class="process-word" data-i18n="process2Word">整理</div>
+            <p data-i18n="process2Body">我們把財務、客戶、合約、牌照、租約、設備、供應網絡和老闆角色逐項整理，讓公司真正的價值變得容易理解。</p>
           </div>
 
-
-          <div class="timeline-item reveal">
+          <div class="timeline-item">
             <div class="timeline-dot">03</div>
-
-            <div class="process-word" data-i18n="process3Word">
-              配對
-            </div>
-
-            <p data-i18n="process3Body">
-              不把資料到處派。
-              先看對方有沒有能力、耐性和誠意，
-              是否真的適合接這一棒。
-              合適，才深入談。
-            </p>
+            <div class="process-word" data-i18n="process3Word">配對</div>
+            <p data-i18n="process3Body">不是把資料到處派，而是先看對方是否有能力、有誠意，也是否真正適合承接這盤生意。</p>
           </div>
 
-
-          <div class="timeline-item reveal">
+          <div class="timeline-item">
             <div class="timeline-dot">04</div>
+            <div class="process-word" data-i18n="process4Word">過渡</div>
+            <p data-i18n="process4Body">交棒不在簽字那一刻結束。員工怎樣交代、客戶何時知道、哪些關係要親自帶入，都需要安排。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="process-word" data-i18n="process4Word">
-              過渡
+    <section class="section" id="advisory">
+      <div class="container advisory-grid">
+        <div class="reveal">
+          <span class="eyebrow" data-i18n="advisoryEyebrow">SECOND WIND 的顧問方式</span>
+          <h2 data-i18n="advisoryTitle">不是單靠撮合。是以營運視角處理交棒。</h2>
+          <p class="lead" style="margin-top:22px" data-i18n="advisoryIntro">Second Wind 是一支交棒顧問團隊。先理解企業怎樣運作，再幫忙整理重點、做初步盡職準備、篩選承接者，最後推動交接向前。</p>
+
+          <div class="micro-stats">
+            <div class="micro-stat">
+              <strong data-i18n="stat1Title">懂營運</strong>
+              <p data-i18n="stat1Body">看公司怎樣真正跑，而不只是看一張損益表。</p>
             </div>
-
-            <p data-i18n="process4Body">
-              交棒不是簽完文件就完。
-              員工怎樣交代、客戶何時知道、
-              哪些關係需要親自介紹、
-              老闆需要留下多久，都要一步一步安排。
-            </p>
+            <div class="micro-stat">
+              <strong data-i18n="stat2Title">懂整理</strong>
+              <p data-i18n="stat2Body">把散落在文件、流程與老闆經驗裡的價值整理清楚。</p>
+            </div>
+            <div class="micro-stat">
+              <strong data-i18n="stat3Title">懂溝通</strong>
+              <p data-i18n="stat3Body">以尊重、務實的方式和傳統老闆與下一手雙方對話。</p>
+            </div>
           </div>
-
         </div>
 
+        <div class="advisory-card reveal delay-1">
+          <p data-i18n="advisoryP1">我們不把自己定位成單純的「經紀」。很多交棒之所以卡住，不是沒有人有興趣，而是公司的真正價值沒有被整理清楚，買賣雙方也不知道應該先處理什麼。</p>
+          <p data-i18n="advisoryP2">主管會不會留？客戶會不會繼續合作？哪些知識仍然只在老闆腦裡？公司離開老闆之後能否順利運作？這些問題，往往比一開始談價錢更重要。</p>
+          <p data-i18n="advisoryP3">Second Wind 的角色，是把這些問題提早看見、整理好、講清楚，再和合適的承接者一步一步向前走。</p>
+        </div>
       </div>
     </section>
 
-
-    <!-- FOUNDER -->
-
-    <section class="section" id="founder">
-      <div class="container founder-grid">
-
-        <div class="photo-frame founder-photo reveal">
-
-          <!--
-            Best option:
-            real photograph of you.
-
-            Replace with:
-            <img src="images/founder.jpg" alt="Founder of Second Wind">
-          -->
-
-          <div class="photo-placeholder">
-            <span data-i18n="founderPhotoNote">
-              這裡最好放您的真人照片。
-              不需要正式西裝硬照。
-              一張自然、可信、像正在與企業老闆傾談的照片會更合適。
-            </span>
-          </div>
-
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow" data-i18n="concernsEyebrow">老闆最常擔心的事</span>
+          <h2 data-i18n="concernsTitle">比起價錢，很多老闆更在意的是之後會怎樣。</h2>
         </div>
 
-
-        <div class="founder-copy reveal delay-1">
-
-          <span class="eyebrow" data-i18n="founderEyebrow">
-            THE OPERATOR'S EDGE
-          </span>
-
-          <h2 data-i18n="founderTitle">
-            我自己也是開過廠、做過生意的人。
-          </h2>
-
-          <p data-i18n="founderP1">
-            我也曾經向準備退休的老闆買過公司。
-            所以我知道，一盤生意在老闆心裡，
-            從來不只是一個價錢。
-          </p>
-
-          <div class="pullquote" data-i18n="founderHighlight">
-            老闆真正擔心的是：
-            新的人會不會亂來？
-            員工怎樣？
-            客戶怎樣？
-            公司名字還在不在？
+        <div class="concerns-grid">
+          <div class="concern-card reveal">
+            <h3 data-i18n="concern1Title">新的人會不會亂改？</h3>
+            <p data-i18n="concern1Body">我們會看承接者的背景、動機和做法，不只是看有沒有資金。是否適合接手，同樣重要。</p>
           </div>
-
-          <p data-i18n="founderP2">
-            我也知道接手的人會問什麼：
-            沒有老闆，公司還跑得動嗎？
-            哪個主管最重要？
-            哪些客戶靠的是公司，
-            哪些其實仍然靠的是老闆本人？
-          </p>
-
-          <p data-i18n="founderP3">
-            我的角色，就是把這兩邊之間的距離縮短。
-            不靠催促，也不靠進取式銷售。
-            先把事情講清楚，再一步一步向前走。
-          </p>
-
+          <div class="concern-card reveal delay-1">
+            <h3 data-i18n="concern2Title">員工和主管怎麼辦？</h3>
+            <p data-i18n="concern2Body">交棒成功與否，很大程度取決於核心團隊是否穩定。這也是整理與過渡階段的重點。</p>
+          </div>
+          <div class="concern-card reveal">
+            <h3 data-i18n="concern3Title">客戶會不會流失？</h3>
+            <p data-i18n="concern3Body">我們會先分清楚哪些關係屬於公司、哪些仍然靠老闆本人，並協助安排適當的交接節奏。</p>
+          </div>
         </div>
-
       </div>
     </section>
-
-
-    <!-- FEES -->
-
-    <section class="section" id="fees">
-      <div class="container fee-grid">
-
-        <div class="fee-copy reveal">
-
-          <span class="eyebrow" data-i18n="feeEyebrow">
-            收費清楚，利益一致
-          </span>
-
-          <h2 data-i18n="feeTitle">
-            正式開始之前，先把收費講清楚。
-          </h2>
-
-          <p data-i18n="feeP1">
-            市場上不少生意中介的成功費約為完成金額的 10%。
-            Second Wind 一般為 5–7%。
-          </p>
-
-          <p data-i18n="feeP2">
-            我們集中處理一個較窄的企業類型，
-            先把資料整理好，再找真正合適的人，
-            減少沒有必要的來回，也尊重老闆的時間。
-          </p>
-
-          <p data-i18n="feeP3">
-            每間公司的情況都不同。
-            實際工作範圍及收費會在正式開始之前，
-            先講清楚、寫清楚。
-          </p>
-
-        </div>
-
-
-        <div class="fee-panel reveal delay-1">
-
-          <small data-i18n="feeLabel">
-            一般成功費
-          </small>
-
-          <strong>
-            5–7%
-          </strong>
-
-          <p data-i18n="feeNote">
-            成功完成交棒後支付。
-            實際比例視乎公司規模、
-            資料完整程度及整體工作量而定。
-          </p>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CONTACT -->
 
     <section class="section" id="contact">
       <div class="container">
-
-        <div class="contact-shell">
-
+        <div class="contact-panel">
           <div class="contact-grid">
-
             <div class="contact-copy reveal">
-
-              <span class="eyebrow" data-i18n="contactEyebrow">
-                CONFIDENTIAL INQUIRY · 保密查詢
-              </span>
-
-              <h2 data-i18n="contactTitle">
-                若您正在考慮將心血交棒，歡迎私下聊聊。
-              </h2>
-
-              <p class="lead" data-i18n="contactIntro">
-                不需要已經決定，也不用先準備文件。
-                我們不會催促，只會先聆聽。
-              </p>
-
+              <span class="eyebrow" data-i18n="contactEyebrow">CONFIDENTIAL INQUIRY · 保密查詢</span>
+              <h2 data-i18n="contactTitle">若您正在考慮將心血交棒，歡迎私下聊聊。</h2>
+              <p class="lead" data-i18n="contactIntro">您不需要已經決定，也不用先準備一大疊文件。我們不會催促，只會先聆聽，看看 Second Wind 是否適合幫您走下一步。</p>
 
               <div class="privacy-list">
-
                 <div class="privacy-item">
-                  <strong data-i18n="privacy1Title">
-                    公司身份先保密
-                  </strong>
-
-                  <p data-i18n="privacy1Body">
-                    未經您同意，不會向外透露公司名稱。
-                  </p>
+                  <strong data-i18n="privacy1Title">公司身份先保密</strong>
+                  <p data-i18n="privacy1Body">未經您的同意，不會向外透露公司名稱或敏感資料。</p>
                 </div>
-
-
                 <div class="privacy-item">
-                  <strong data-i18n="privacy2Title">
-                    不接觸員工或客戶
-                  </strong>
-
-                  <p data-i18n="privacy2Body">
-                    沒有您的許可，
-                    我們不會聯絡員工、客戶或供應商。
-                  </p>
+                  <strong data-i18n="privacy2Title">不接觸員工或客戶</strong>
+                  <p data-i18n="privacy2Body">沒有您的許可，我們不會聯絡員工、客戶或供應商。</p>
                 </div>
-
-
                 <div class="privacy-item">
-                  <strong data-i18n="privacy3Title">
-                    第一次只是傾偈
-                  </strong>
-
-                  <p data-i18n="privacy3Body">
-                    先了解情況，
-                    看看 Second Wind 是否適合幫您走下一步。
-                  </p>
+                  <strong data-i18n="privacy3Title">第一次只是傾偈</strong>
+                  <p data-i18n="privacy3Body">先了解情況，看看彼此是否適合，而不是一開始就催促進程。</p>
                 </div>
-
               </div>
-
             </div>
 
-
-            <form
-              id="inquiry-form"
-              class="reveal delay-1"
-              action="https://formspree.io/f/yourcode"
-              method="POST"
-            >
-
-              <input
-                type="hidden"
-                name="_subject"
-                value="Second Wind Confidential Inquiry"
-              />
-
+            <form id="inquiry-form" class="reveal delay-1" action="https://formspree.io/f/yourcode" method="POST">
+              <input type="hidden" name="_subject" value="Second Wind Confidential Inquiry" />
 
               <div class="field">
-                <label for="name" data-i18n="formName">
-                  您的稱呼
-                </label>
-
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autocomplete="name"
-                  required
-                  data-placeholder-zh="例如：陳先生"
-                  data-placeholder-en="Your name"
-                  placeholder="例如：陳先生"
-                />
+                <label for="name" data-i18n="formName">您的稱呼</label>
+                <input id="name" name="name" type="text" autocomplete="name" required data-placeholder-zh="例如：陳先生" data-placeholder-en="Your name" placeholder="例如：陳先生" />
               </div>
-
 
               <div class="field">
-                <label for="company" data-i18n="formCompany">
-                  公司名稱
-                </label>
-
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  autocomplete="organization"
-                  required
-                  data-placeholder-zh="可以先填公司簡稱"
-                  data-placeholder-en="Company name"
-                  placeholder="可以先填公司簡稱"
-                />
+                <label for="company" data-i18n="formCompany">公司名稱</label>
+                <input id="company" name="company" type="text" autocomplete="organization" required data-placeholder-zh="可以先填公司簡稱" data-placeholder-en="Company name" placeholder="可以先填公司簡稱" />
               </div>
-
 
               <div class="field">
-                <label for="email" data-i18n="formEmail">
-                  電郵
-                </label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  required
-                  placeholder="your@email.com"
-                />
+                <label for="email" data-i18n="formEmail">電郵</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="your@email.com" />
               </div>
-
 
               <div class="field">
-                <label for="message" data-i18n="formMessage">
-                  想談談什麼？
-                </label>
-
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  data-placeholder-zh="例如：公司做了 25 年，主要做商業設備供應。子女沒有興趣接手，我希望未來兩三年慢慢退下來。"
-                  data-placeholder-en="For example: I have run the company for 25 years. My children do not intend to take over and I am considering stepping back over the next two to three years."
-                  placeholder="例如：公司做了 25 年，主要做商業設備供應。子女沒有興趣接手，我希望未來兩三年慢慢退下來。"
-                ></textarea>
+                <label for="message" data-i18n="formMessage">想談談什麼？</label>
+                <textarea id="message" name="message" required data-placeholder-zh="例如：公司做了 25 年，現時仍然穩定經營。我正在考慮未來幾年慢慢退下來，想了解交棒應如何安排。" data-placeholder-en="For example: I have run the business for 25 years and am considering stepping back over the next few years. I would like to understand how a proper handover should be arranged." placeholder="例如：公司做了 25 年，現時仍然穩定經營。我正在考慮未來幾年慢慢退下來，想了解交棒應如何安排。"></textarea>
               </div>
 
-
-              <button type="submit" class="btn" data-i18n="formSubmit">
-                提交保密查詢
-              </button>
-
-
-              <div class="form-note" data-i18n="formNote">
-                提交內容只用作初步聯絡。
-                未經同意，不會向潛在接手人或第三方披露公司資料。
-              </div>
-
-
-              <div
-                id="form-status"
-                class="form-status"
-                aria-live="polite"
-              ></div>
-
+              <button type="submit" class="btn" data-i18n="formSubmit">提交保密查詢</button>
+              <div class="form-note" data-i18n="formNote">提交內容只用作初步聯絡。未經同意，不會向潛在承接方或第三方披露公司資料。</div>
+              <div id="form-status" class="form-status" aria-live="polite"></div>
             </form>
-
           </div>
-
         </div>
-
       </div>
     </section>
-
   </main>
-
 
   <footer>
     <div class="container footer-inner">
-
-      <div>
-        Second Wind · Hong Kong
-      </div>
-
-      <div>
-        © <span id="year"></span> Second Wind.
-        <span data-i18n="footerRights">保留所有權利。</span>
-      </div>
-
+      <div>Second Wind · Hong Kong</div>
+      <div>© <span id="year"></span> Second Wind. <span data-i18n="footerRights">保留所有權利。</span></div>
     </div>
   </footer>
 
-
   <script>
     const translations = {
-
       "zh-Hant": {
         navCriteria: "我們尋找的企業",
         navProcess: "交棒流程",
-        navFounder: "關於我",
-        navFees: "收費",
+        navAdvisory: "顧問方式",
         headerCTA: "私下聊聊",
-
         heroEyebrow: "香港企業交棒 · BUSINESS SUCCESSION",
-        heroTitle: "三十年守下來的招牌，值得交到對的人手上。",
-        heroBody: "專注 1,000 至 2,000 萬營業額的成熟企業交接。不為子女添負，也不讓多年建立的客戶、團隊和招牌突然停在這一代。",
+        heroTitle: "把三十年守下來的招牌，交到對的人手上。",
+        heroBody: "Second Wind 協助香港成熟企業安排交棒與延續。當老闆準備退下來時，我們幫忙整理公司真正的價值，並尋找能夠守住團隊、客戶與招牌的下一手。",
         heroCTA: "私下談談交棒",
         heroSecondary: "看看是否合適",
         heroNote: "保密處理 · 不催促 · 不公開放盤 · 先了解，再決定",
-
-        heroPhotoNote: "建議主圖：一位成熟香港企業老闆，在自己經營多年的辦公室、倉庫或公司場地內。自然、有故事感，不需要望鏡頭擺姿勢。",
         heroCardLabel: "SECOND WIND 的角色",
-        heroCardText: "不是替您把公司「放盤」。是幫您把這一棒交好。",
-
+        heroCardText: "不是把公司掛出去等人問價。是幫您把這一棒交得穩、交得安心。",
+        trust1Title: "守招牌",
+        trust1Body: "找能把原本好的東西繼續做好的人，不只是找出價的人。",
+        trust2Title: "穩團隊",
+        trust2Body: "員工、主管和長年客戶，往往就是公司最真實的價值。",
+        trust3Title: "減麻煩",
+        trust3Body: "資料整理、初步篩選和配對由我們處理，老闆不用突然學一套交易語言。",
         storyEyebrow: "做了幾十年生意之後",
         storyTitle: "最難的，往往不是做到退休。是退休之後怎樣辦。",
-        storyP1: "香港有很多好公司，沒有什麼華麗故事。做的是專業供應、設備、工程服務、維修保養、物流、檢測、分銷，或者某個外行人甚至沒聽過的 B2B 市場。",
-        storyP2: "公司每年做一千多萬生意，有熟客、有團隊、有供應商，有人已經跟了老闆十幾二十年。生意本身沒有問題，只是老闆到了想放慢腳步的時候。",
-        storyP3: "子女有自己的生活，也未必想接。但直接關門又太可惜。真正需要的，是一個有能力、有耐性，也願意尊重原有文化的人接下去。",
-        storyStatement: "交棒，不只是找一個買家。是找下一個願意把公司繼續做好的人。",
-
+        storyP1: "香港有很多好公司，沒有什麼華麗故事。做的是專業供應、設備、維修保養、工程服務、物流、分銷、檢測，或某個很窄但很穩定的 B2B 市場。",
+        storyP2: "公司本身有客戶、有團隊、有供應商，也有多年累積的經驗與信任。問題不在生意，而在於當老闆想退下來時，下一步應該怎樣安排。",
+        storyP3: "有些公司規模不小，不適合一般小生意平台；有些又未必需要走大型機構式流程。這時候，最需要的是一種懂營運、懂溝通、也懂整理的交棒顧問方式。",
+        storyQuote: "交棒，不只是找一個買家。是找下一個願意把公司繼續做好的人。",
         criteriaEyebrow: "我們尋找的企業",
         criteriaTitle: "我們尋找的，是值得延續的實業。",
-        criteriaIntro: "不一定新潮，也不需要講漂亮故事。重要的是這盤生意有根基、有需要，下一個十年仍然值得有人繼續做。",
-
-        criteria1Title: "老闆是真的想退休",
-        criteria1Body: "做了幾十年，到了想放慢腳步的時候。子女有自己的路，沒有意願接手，公司需要一個新的掌舵人。",
-
-        criteria2Title: "行業穩定，需求還在",
-        criteria2Body: "不是追潮流，也不是正在消失的行業。未來 10 至 15 年，市場仍然需要這項產品、服務或能力。",
-
+        criteriaIntro: "我們不以一個營業額數字一刀切。重要的是公司已經有一定規模、客戶基礎和可交接的營運能力，而不是仍然主要靠老闆一個人撐住。",
+        fitTitle: "我們偏好的，是「成熟企業」，不是「細小生意」。",
+        fitBody: "如果公司已有穩定團隊、長期客戶、可辨識的營運流程和持續現金流，不論規模略小或更大，都值得先談。相反，如果生意仍然高度依賴老闆本人、未形成團隊或基礎仍很早期，我們未必是最合適的顧問。",
+        criteria1Title: "老闆真心想退下來",
+        criteria1Body: "做了幾十年，到了想放慢腳步的時候。子女未必想接，公司需要一個新的掌舵人。",
+        criteria2Title: "行業穩定，仍有需求",
+        criteria2Body: "不是追潮流，也不是夕陽到只剩最後一口氣。未來十年，市場仍然需要這項服務、產品或能力。",
         criteria3Title: "有真正的本地門檻",
-        criteria3Body: "本地牌照、技術團隊、穩定 B2B 合約、客戶關係、即時服務能力或多年供應網絡，不是單靠更便宜的人手就能取代。",
-
-        criteria4Title: "現金流穩定，數目看得懂",
-        criteria4Body: "正常做生意，正常賺錢。不靠複雜財技，也不需要講一套很漂亮的投資故事。",
-
-        businessPhotoNote: "建議照片：成熟 B2B 企業環境，例如辦公室連倉庫、商業設備陳列室、分銷公司或物流企業。重點是「有規模、有團隊、有歷史」，而不是工匠手作感。",
-
+        criteria3Body: "本地牌照、長期 B2B 合約、技術團隊、供應關係、服務速度或客戶信任，都不是更便宜的人手就能直接取代。",
+        criteria4Title: "營運扎實，數目看得懂",
+        criteria4Body: "我們偏好有真實營運、有穩定現金流、結構清楚的公司，而不是只靠故事支撐的生意。",
         valueEyebrow: "真正值錢的，未必在報表第一頁",
-        valueTitle: "一盤做了二三十年的生意，價值往往藏在細節裡。",
-        valueBody: "老闆做慣了，很多事情覺得是理所當然。但對下一個接手的人來說，這些才是真正值得接下這間公司的原因。",
-        value1: "做了十幾二十年的長期客戶",
-        value2: "不容易重新建立的牌照、認證和供應關係",
-        value3: "跟公司多年的主管、技術人員和核心員工",
-        value4: "穩定的租約、商業合約和客戶習慣",
-        value5: "行內人知道，但財務報表不會告訴你的信譽",
-
+        valueTitle: "一盤老生意的價值，往往藏在細節裡。",
+        valueIntro: "牌照、合約、主管、供應商、租約、交付能力、口碑、老闆自己在流程中的角色——這些才是交棒時真正要整理清楚的東西。",
+        value1Title: "牌照與合規",
+        value1Body: "哪些牌照、資格或認證真正支撐公司的競爭力，以及承接後如何延續。",
+        value2Title: "核心團隊",
+        value2Body: "哪些主管和骨幹真正撐住日常營運，留下他們比什麼都重要。",
+        value3Title: "客戶關係",
+        value3Body: "哪些客戶關係屬於公司，哪些仍然主要建基於老闆本人。",
+        value4Title: "供應與交付",
+        value4Body: "供應商條件、租約、設備與交付能力，都是承接者真正會看重的基本盤。",
         processEyebrow: "怎樣交這一棒",
-        processTitle: "您繼續做好生意。整理和配對，我們來做。",
-        processIntro: "不需要學併購術語，也不用自己整理成一本厚厚的文件。我們把公司真正重要的東西整理清楚，讓合適的人一看就明白。",
-
+        processTitle: "您繼續顧生意。整理和配對，我們來做。",
+        processIntro: "不需要學一套併購術語，也不需要自己摸索應該準備什麼。我們把交棒前最難的部分，拆成清楚可行的幾步。",
         process1Word: "傾",
-        process1Body: "先坐下來談。您想幾時退、最放心不下的是什麼、公司有什麼地方是您最希望新的人不要亂改。第一次不需要準備任何文件。",
-
+        process1Body: "先坐下來談，了解老闆為什麼想退、幾時想退，以及最放心不下的是招牌、團隊、客戶，還是交接後的安排。",
         process2Word: "整理",
-        process2Body: "我們把財務、客戶、合約、員工、牌照、租約、設備和老闆本人的角色逐項整理。把「老闆心裡知道」的事情，變成別人能理解的公司。",
-
+        process2Body: "我們把財務、客戶、合約、牌照、租約、設備、供應網絡和老闆角色逐項整理，讓公司真正的價值變得容易理解。",
         process3Word: "配對",
-        process3Body: "不把資料到處派。先看對方有沒有能力、耐性和誠意，是否真的適合接這一棒。合適，才深入談。",
-
+        process3Body: "不是把資料到處派，而是先看對方是否有能力、有誠意，也是否真正適合承接這盤生意。",
         process4Word: "過渡",
-        process4Body: "交棒不是簽完文件就完。員工怎樣交代、客戶何時知道、哪些關係需要親自介紹、老闆需要留下多久，都要一步一步安排。",
-
-        founderPhotoNote: "這裡最好放您的真人照片。不需要正式西裝硬照。一張自然、可信、像正在與企業老闆傾談的照片會更合適。",
-        founderEyebrow: "THE OPERATOR'S EDGE",
-        founderTitle: "我自己也是開過廠、做過生意的人。",
-        founderP1: "我也曾經向準備退休的老闆買過公司。所以我知道，一盤生意在老闆心裡，從來不只是一個價錢。",
-        founderHighlight: "老闆真正擔心的是：新的人會不會亂來？員工怎樣？客戶怎樣？公司名字還在不在？",
-        founderP2: "我也知道接手的人會問什麼：沒有老闆，公司還跑得動嗎？哪個主管最重要？哪些客戶靠的是公司，哪些其實仍然靠的是老闆本人？",
-        founderP3: "我的角色，就是把這兩邊之間的距離縮短。不靠催促，也不靠進取式銷售。先把事情講清楚，再一步一步向前走。",
-
-        feeEyebrow: "收費清楚，利益一致",
-        feeTitle: "正式開始之前，先把收費講清楚。",
-        feeP1: "市場上不少生意中介的成功費約為完成金額的 10%。Second Wind 一般為 5–7%。",
-        feeP2: "我們集中處理一個較窄的企業類型，先把資料整理好，再找真正合適的人，減少沒有必要的來回，也尊重老闆的時間。",
-        feeP3: "每間公司的情況都不同。實際工作範圍及收費會在正式開始之前，先講清楚、寫清楚。",
-        feeLabel: "一般成功費",
-        feeNote: "成功完成交棒後支付。實際比例視乎公司規模、資料完整程度及整體工作量而定。",
-
+        process4Body: "交棒不在簽字那一刻結束。員工怎樣交代、客戶何時知道、哪些關係要親自帶入，都需要安排。",
+        advisoryEyebrow: "SECOND WIND 的顧問方式",
+        advisoryTitle: "不是單靠撮合。是以營運視角處理交棒。",
+        advisoryIntro: "Second Wind 是一支交棒顧問團隊。先理解企業怎樣運作，再幫忙整理重點、做初步盡職準備、篩選承接者，最後推動交接向前。",
+        stat1Title: "懂營運",
+        stat1Body: "看公司怎樣真正跑，而不只是看一張損益表。",
+        stat2Title: "懂整理",
+        stat2Body: "把散落在文件、流程與老闆經驗裡的價值整理清楚。",
+        stat3Title: "懂溝通",
+        stat3Body: "以尊重、務實的方式和傳統老闆與下一手雙方對話。",
+        advisoryP1: "我們不把自己定位成單純的「經紀」。很多交棒之所以卡住，不是沒有人有興趣，而是公司的真正價值沒有被整理清楚，買賣雙方也不知道應該先處理什麼。",
+        advisoryP2: "主管會不會留？客戶會不會繼續合作？哪些知識仍然只在老闆腦裡？公司離開老闆之後能否順利運作？這些問題，往往比一開始談價錢更重要。",
+        advisoryP3: "Second Wind 的角色，是把這些問題提早看見、整理好、講清楚，再和合適的承接者一步一步向前走。",
+        concernsEyebrow: "老闆最常擔心的事",
+        concernsTitle: "比起價錢，很多老闆更在意的是之後會怎樣。",
+        concern1Title: "新的人會不會亂改？",
+        concern1Body: "我們會看承接者的背景、動機和做法，不只是看有沒有資金。是否適合接手，同樣重要。",
+        concern2Title: "員工和主管怎麼辦？",
+        concern2Body: "交棒成功與否，很大程度取決於核心團隊是否穩定。這也是整理與過渡階段的重點。",
+        concern3Title: "客戶會不會流失？",
+        concern3Body: "我們會先分清楚哪些關係屬於公司、哪些仍然靠老闆本人，並協助安排適當的交接節奏。",
         contactEyebrow: "CONFIDENTIAL INQUIRY · 保密查詢",
         contactTitle: "若您正在考慮將心血交棒，歡迎私下聊聊。",
-        contactIntro: "不需要已經決定，也不用先準備文件。我們不會催促，只會先聆聽。",
-
+        contactIntro: "您不需要已經決定，也不用先準備一大疊文件。我們不會催促，只會先聆聽，看看 Second Wind 是否適合幫您走下一步。",
         privacy1Title: "公司身份先保密",
-        privacy1Body: "未經您同意，不會向外透露公司名稱。",
-
+        privacy1Body: "未經您的同意，不會向外透露公司名稱或敏感資料。",
         privacy2Title: "不接觸員工或客戶",
         privacy2Body: "沒有您的許可，我們不會聯絡員工、客戶或供應商。",
-
         privacy3Title: "第一次只是傾偈",
-        privacy3Body: "先了解情況，看看 Second Wind 是否適合幫您走下一步。",
-
+        privacy3Body: "先了解情況，看看彼此是否適合，而不是一開始就催促進程。",
         formName: "您的稱呼",
         formCompany: "公司名稱",
         formEmail: "電郵",
         formMessage: "想談談什麼？",
         formSubmit: "提交保密查詢",
-        formNote: "提交內容只用作初步聯絡。未經同意，不會向潛在接手人或第三方披露公司資料。",
-
+        formNote: "提交內容只用作初步聯絡。未經同意，不會向潛在承接方或第三方披露公司資料。",
         footerRights: "保留所有權利。"
       },
-
 
       en: {
         navCriteria: "What We Look For",
         navProcess: "How It Works",
-        navFounder: "About",
-        navFees: "Fees",
+        navAdvisory: "Advisory Approach",
         headerCTA: "Private Conversation",
-
         heroEyebrow: "HONG KONG BUSINESS SUCCESSION",
-        heroTitle: "A name built over thirty years deserves the right next owner.",
-        heroBody: "Focused on established Hong Kong businesses with HK$10–20 million in annual revenue — helping owners step back without burdening the next generation or letting decades of customer relationships, staff loyalty and reputation end with them.",
+        heroTitle: "Place the name you built over thirty years in the right hands.",
+        heroBody: "Second Wind helps established Hong Kong businesses prepare for a thoughtful handover. When an owner is ready to step back, we help organise the company's real value and identify a next owner who can preserve the team, customers and reputation.",
         heroCTA: "Have a Private Conversation",
         heroSecondary: "See If We Are a Fit",
         heroNote: "Confidential · No pressure · No public listing · Understand first, decide later",
-
-        heroPhotoNote: "Suggested hero image: an established Hong Kong business owner in the office, warehouse or premises he or she has run for many years. Natural and quietly confident, not staged.",
         heroCardLabel: "SECOND WIND'S ROLE",
-        heroCardText: "Not to put your company 'on the market'. To help you pass it on properly.",
-
+        heroCardText: "Not to put a company on display and wait for offers. To help owners pass it on steadily and with confidence.",
+        trust1Title: "Protect the name",
+        trust1Body: "Find someone who will preserve what already works, not simply someone willing to make an offer.",
+        trust2Title: "Stabilise the team",
+        trust2Body: "Employees, managers and long-standing customers are often the most real part of a company's value.",
+        trust3Title: "Reduce the burden",
+        trust3Body: "We handle preparation, early screening and matching so owners do not have to learn a new transaction language.",
         storyEyebrow: "AFTER DECADES IN BUSINESS",
         storyTitle: "The difficult part is often not reaching retirement. It is deciding what happens next.",
-        storyP1: "Many good Hong Kong businesses are not glamorous. They operate in specialist supply, commercial equipment, engineering services, maintenance, logistics, inspection, distribution or narrow B2B markets that outsiders barely notice.",
-        storyP2: "They quietly generate HK$10 million or more a year. They have customers, employees and long-standing suppliers. The business itself is healthy; the owner is simply ready to slow down.",
-        storyP3: "The children may have chosen their own careers, while simply closing the company would waste decades of value. What is needed is someone capable, patient and willing to respect what already works.",
-        storyStatement: "Passing on a business is not simply about finding a buyer. It is about finding someone willing to carry it forward properly.",
-
+        storyP1: "Many good Hong Kong businesses are not glamorous. They operate in specialist supply, equipment, maintenance, engineering services, logistics, distribution, inspection or narrow but dependable B2B niches.",
+        storyP2: "They have customers, teams, suppliers and many years of built-up know-how and trust. The issue is not the business itself. It is how to plan the next chapter when the owner is ready to step back.",
+        storyP3: "Some are too substantial for a typical small-business marketplace, yet may not need a large institutional process. What they need is a handover advisory approach grounded in operations, communication and careful preparation.",
+        storyQuote: "Passing on a business is not simply about finding a buyer. It is about finding someone willing to carry it forward properly.",
         criteriaEyebrow: "WHAT WE LOOK FOR",
         criteriaTitle: "We look for real businesses worth continuing.",
-        criteriaIntro: "They do not need to be fashionable or have a polished pitch. They need solid foundations, genuine demand and a reason to exist for another decade.",
-
-        criteria1Title: "The owner genuinely wants to retire",
-        criteria1Body: "After decades of running the company, the owner is ready to step back. The next generation has its own plans and there is no natural family successor.",
-
+        criteriaIntro: "We do not use a single revenue number as a hard cut-off. What matters is that the company has real scale, a customer base and an operating structure that can be handed over—rather than a business that still depends almost entirely on the founder.",
+        fitTitle: "Our focus is on established companies, not very small owner-dependent businesses.",
+        fitBody: "If the company has a stable team, repeat customers, identifiable operating processes and continuing cash flow, it is worth a conversation whether it is somewhat smaller or substantially larger. If the business still relies almost entirely on the owner or has not yet built a transferable operating base, we may not be the right adviser.",
+        criteria1Title: "The owner genuinely wants to step back",
+        criteria1Body: "After many years in business, the owner is ready to slow down. There may be no natural family successor prepared to take over.",
         criteria2Title: "Stable industry, enduring demand",
-        criteria2Body: "Not a passing trend and not an industry disappearing tomorrow. Customers should still need the company's products or services ten to fifteen years from now.",
-
+        criteria2Body: "Not a passing trend and not a business fading into irrelevance. Customers should still need what the company does ten years from now.",
         criteria3Title: "Real local barriers",
-        criteria3Body: "Licences, technical teams, B2B contracts, customer relationships, response times or established supplier networks that cannot simply be replaced by cheaper labour.",
-
-        criteria4Title: "Stable cash flow, understandable numbers",
-        criteria4Body: "A company that earns money by doing useful work. No complicated financial engineering and no need for an elaborate investment story.",
-
-        businessPhotoNote: "Suggested photograph: an established B2B business environment such as an office and warehouse, equipment showroom, distribution company or logistics operation. The image should communicate scale, staff and history — not craftsmanship.",
-
-        valueEyebrow: "VALUE DOES NOT ALWAYS APPEAR ON PAGE ONE OF THE ACCOUNTS",
-        valueTitle: "The value of a twenty- or thirty-year-old business is often hidden in the details.",
-        valueBody: "Owners become used to these things and consider them ordinary. To the person taking over, they can be exactly what makes the company worth continuing.",
-        value1: "Customers who have stayed for fifteen or twenty years",
-        value2: "Licences, certifications and supplier relationships that are hard to recreate",
-        value3: "Long-serving managers, technical staff and key employees",
-        value4: "Stable leases, commercial contracts and customer habits",
-        value5: "A reputation that people in the industry understand, even when the accounts do not show it",
-
-        processEyebrow: "PASSING THE BATON",
+        criteria3Body: "Licences, B2B contracts, teams, supplier relationships, service responsiveness or customer trust that cannot simply be copied with cheaper labour.",
+        criteria4Title: "Sound operations, understandable numbers",
+        criteria4Body: "We prefer businesses with real operations, stable cash flow and clear economics—not businesses held together only by a story.",
+        valueEyebrow: "THE REAL VALUE MAY NOT BE ON PAGE ONE OF THE ACCOUNTS",
+        valueTitle: "The value of an established business is often hidden in the details.",
+        valueIntro: "Licences, contracts, managers, suppliers, leases, delivery capability, reputation and the owner's role in the workflow—these are often the things that need to be understood before a handover can work.",
+        value1Title: "Licences & compliance",
+        value1Body: "Which licences, certifications or approvals genuinely support the business, and how they continue after handover.",
+        value2Title: "Core team",
+        value2Body: "Which managers and employees truly hold the day-to-day operation together, and why retaining them matters.",
+        value3Title: "Customer relationships",
+        value3Body: "Which relationships belong to the company and which still depend mainly on the founder.",
+        value4Title: "Supply & delivery",
+        value4Body: "Supplier terms, leases, equipment and delivery capability are part of the operating base a successor is really taking on.",
+        processEyebrow: "HOW THE HANDOVER WORKS",
         processTitle: "You keep running the business. We handle the preparation and matching.",
-        processIntro: "You do not need to learn M&A terminology or prepare a thick set of transaction documents. We organise what really matters so the right successor can understand the business clearly.",
-
+        processIntro: "Owners do not need to learn a new language or guess what to prepare. We break the most difficult parts of the handover into clear, practical steps.",
         process1Word: "Talk",
-        process1Body: "We begin with when you hope to step back, what concerns you most and what you most want the next owner to respect. No documents are required for the first conversation.",
-
+        process1Body: "We begin with why the owner wants to step back, when that may happen, and what matters most—team, customers, reputation or post-handover involvement.",
         process2Word: "Organise",
-        process2Body: "We organise the finances, customers, contracts, employees, licences, leases, equipment and the owner's role. Knowledge that currently lives in your head becomes something another person can understand.",
-
+        process2Body: "We organise the finances, customers, contracts, licences, leases, equipment, supply network and founder role so the real value of the company can be understood clearly.",
         process3Word: "Match",
-        process3Body: "We do not circulate sensitive information indiscriminately. We first assess whether someone has the ability, patience and intent to take the business forward properly.",
-
+        process3Body: "We do not circulate sensitive information indiscriminately. We first consider whether a party has the ability, intent and fit to take the business forward.",
         process4Word: "Transition",
-        process4Body: "The handover does not end with signatures. Employees, customers, key relationships and the length of the owner's transition all need to be handled carefully.",
-
-        founderPhotoNote: "This should ideally be a real photograph of you. Not a formal suit-and-tie portrait — something natural and credible, as if you were in conversation with another business owner.",
-        founderEyebrow: "THE OPERATOR'S EDGE",
-        founderTitle: "I have built and operated businesses myself.",
-        founderP1: "I have also acquired businesses from owners preparing for retirement. That taught me that, to an owner, a company is never simply a number.",
-        founderHighlight: "The real questions are: Will the new owner change everything? What happens to the employees? Will customers stay? Will the company name still mean something?",
-        founderP2: "I also understand what the person taking over needs to know: Can the company operate without the founder? Which manager matters most? Which relationships belong to the company and which still depend on the owner personally?",
-        founderP3: "My role is to bridge that gap. No aggressive selling and no unnecessary pressure. We make the situation clear and move forward one sensible step at a time.",
-
-        feeEyebrow: "CLEAR FEES, ALIGNED INTERESTS",
-        feeTitle: "We agree the economics before we begin.",
-        feeP1: "Many business intermediaries charge success fees around 10%. Second Wind typically charges 5–7%.",
-        feeP2: "We concentrate on a narrow type of established business, prepare the information properly and work selectively — reducing unnecessary back-and-forth and respecting the owner's time.",
-        feeP3: "Every company is different. The scope of work and fee are agreed clearly in writing before an engagement begins.",
-        feeLabel: "Typical Success Fee",
-        feeNote: "Payable following a successful handover. The exact percentage depends on company size, information readiness and the amount of work required.",
-
+        process4Body: "The handover does not end at signing. Staff communication, customer timing and relationship transfer all need to be handled carefully.",
+        advisoryEyebrow: "THE SECOND WIND APPROACH",
+        advisoryTitle: "More than matchmaking. A handover handled through an operator's lens.",
+        advisoryIntro: "Second Wind is a handover advisory practice. We first understand how the business really operates, then help organise the key information, prepare for early diligence, screen potential successors and move the transition forward.",
+        stat1Title: "Operating lens",
+        stat1Body: "We look at how the company actually runs, not just at an income statement.",
+        stat2Title: "Preparation",
+        stat2Body: "We organise value scattered across documents, workflows and founder knowledge.",
+        stat3Title: "Communication",
+        stat3Body: "We speak with traditional owners and prospective successors in a practical, respectful way.",
+        advisoryP1: "We do not position ourselves as a simple broker. Many handovers stall not because there is no interest, but because the real value of the business has not been organised clearly and neither side knows what should be addressed first.",
+        advisoryP2: "Will the managers stay? Will customers continue? What knowledge still lives only in the founder's head? Can the company operate smoothly without the owner in the middle of everything? These questions often matter more than talking about price at the beginning.",
+        advisoryP3: "Second Wind's role is to identify those issues early, organise them clearly and then move forward step by step with the right successor.",
+        concernsEyebrow: "WHAT OWNERS OFTEN WORRY ABOUT",
+        concernsTitle: "Beyond price, many owners care most about what happens afterwards.",
+        concern1Title: "Will the new owner change everything?",
+        concern1Body: "We consider the background, motivation and approach of potential successors—not simply whether they have capital.",
+        concern2Title: "What happens to the staff and managers?",
+        concern2Body: "The stability of the core team often determines whether a handover truly works. It is a major focus in preparation and transition.",
+        concern3Title: "Will customers stay?",
+        concern3Body: "We help distinguish which relationships belong to the company and which still rely on the founder personally, then plan the transfer carefully.",
         contactEyebrow: "CONFIDENTIAL INQUIRY",
         contactTitle: "If you are thinking about passing on what you built, we can talk privately.",
-        contactIntro: "You do not need to have made a decision, and you do not need to prepare documents first. There is no pressure. We begin by listening.",
-
-        privacy1Title: "Your company remains confidential",
-        privacy1Body: "We will not disclose the company's identity without your permission.",
-
-        privacy2Title: "No contact with employees or customers",
-        privacy2Body: "We will not approach employees, customers or suppliers without your approval.",
-
-        privacy3Title: "The first conversation is simply a conversation",
-        privacy3Body: "We first understand your situation and whether Second Wind is the right partner for the next step.",
-
+        contactIntro: "You do not need to have decided, and you do not need to prepare a stack of documents. We begin by listening and seeing whether Second Wind is the right fit for the next step.",
+        privacy1Title: "Company identity stays private",
+        privacy1Body: "We do not disclose the company's name or sensitive information without permission.",
+        privacy2Title: "No contact with staff or customers",
+        privacy2Body: "We do not approach employees, customers or suppliers without your approval.",
+        privacy3Title: "The first conversation is only a conversation",
+        privacy3Body: "We first understand the situation and whether there is a fit, rather than pushing the process from the first call.",
         formName: "Your name",
         formCompany: "Company",
         formEmail: "Email",
         formMessage: "What would you like to discuss?",
         formSubmit: "Send Confidential Inquiry",
-        formNote: "Information submitted here is used only for the initial conversation. Company information will not be shared with potential successors or third parties without your permission.",
-
+        formNote: "Information submitted here is used only for the initial conversation. Company information will not be shared with a potential successor or any third party without permission.",
         footerRights: "All rights reserved."
       }
-
     };
 
-
-    const supportedLanguages = [
-      "zh-Hant",
-      "en"
-    ];
-
+    const supportedLanguages = ["zh-Hant", "en"];
 
     function detectBrowserLanguage() {
-
-      const languages =
-        navigator.languages && navigator.languages.length
-          ? navigator.languages
-          : [navigator.language || "en"];
-
-
-      const prefersTraditional =
-        languages.some((language) => {
-
-          const value =
-            String(language).toLowerCase();
-
-
-          return (
-            value === "zh-hk" ||
-            value.startsWith("zh-hk-") ||
-            value === "zh-tw" ||
-            value.startsWith("zh-tw-") ||
-            value === "zh-mo" ||
-            value.startsWith("zh-mo-") ||
-            value.includes("hant")
-          );
-
-        });
-
-
-      return prefersTraditional
-        ? "zh-Hant"
-        : "en";
+      const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+      const prefersTraditional = langs.some(lang => {
+        const v = String(lang).toLowerCase();
+        return v === "zh-hk" || v.startsWith("zh-hk-") || v === "zh-tw" || v.startsWith("zh-tw-") || v === "zh-mo" || v.startsWith("zh-mo-") || v.includes("hant");
+      });
+      return prefersTraditional ? "zh-Hant" : "en";
     }
-
 
     function applyLanguage(language, remember = false) {
+      if (!supportedLanguages.includes(language)) language = "en";
+      document.documentElement.lang = language === "zh-Hant" ? "zh-Hant-HK" : "en";
+      document.title = language === "zh-Hant" ? "Second Wind｜香港企業交棒與傳承" : "Second Wind | Hong Kong Business Succession";
 
-      if (!supportedLanguages.includes(language)) {
-        language = "en";
-      }
-
-
-      document.documentElement.lang =
-        language === "zh-Hant"
-          ? "zh-Hant-HK"
-          : "en";
-
-
-      document.title =
-        language === "zh-Hant"
-          ? "Second Wind｜香港企業交棒與傳承"
-          : "Second Wind | Hong Kong Business Succession";
-
-
-      document
-        .querySelectorAll("[data-i18n]")
-        .forEach((element) => {
-
-          const key =
-            element.dataset.i18n;
-
-          const translated =
-            translations[language][key];
-
-
-          if (translated) {
-            element.textContent = translated;
-          }
-
-        });
-
-
-      document
-        .querySelectorAll("[data-placeholder-zh]")
-        .forEach((element) => {
-
-          element.placeholder =
-            language === "zh-Hant"
-              ? element.dataset.placeholderZh
-              : element.dataset.placeholderEn;
-
-        });
-
-
-      document
-        .querySelectorAll(".lang-btn")
-        .forEach((button) => {
-
-          const active =
-            button.dataset.lang === language;
-
-          button.classList.toggle(
-            "active",
-            active
-          );
-
-          button.setAttribute(
-            "aria-pressed",
-            String(active)
-          );
-
-        });
-
-
-      if (remember) {
-
-        localStorage.setItem(
-          "secondWindLanguage",
-          language
-        );
-
-      }
-
-    }
-
-
-    const savedLanguage =
-      localStorage.getItem(
-        "secondWindLanguage"
-      );
-
-
-    applyLanguage(
-      supportedLanguages.includes(savedLanguage)
-        ? savedLanguage
-        : detectBrowserLanguage()
-    );
-
-
-    document
-      .querySelectorAll(".lang-btn")
-      .forEach((button) => {
-
-        button.addEventListener(
-          "click",
-          () => {
-
-            applyLanguage(
-              button.dataset.lang,
-              true
-            );
-
-          }
-        );
-
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        const value = translations[language][key];
+        if (value) el.textContent = value;
       });
 
+      document.querySelectorAll("[data-placeholder-zh]").forEach(el => {
+        el.placeholder = language === "zh-Hant" ? el.dataset.placeholderZh : el.dataset.placeholderEn;
+      });
 
-    document.getElementById(
-      "year"
-    ).textContent =
-      new Date().getFullYear();
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        const active = btn.dataset.lang === language;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
 
-
-    const revealElements =
-      document.querySelectorAll(
-        ".reveal"
-      );
-
-
-    if ("IntersectionObserver" in window) {
-
-      const observer =
-        new IntersectionObserver(
-
-          (entries, observerInstance) => {
-
-            entries.forEach((entry) => {
-
-              if (entry.isIntersecting) {
-
-                entry.target
-                  .classList
-                  .add("visible");
-
-
-                observerInstance
-                  .unobserve(
-                    entry.target
-                  );
-
-              }
-
-            });
-
-          },
-
-          {
-            threshold: 0.12,
-            rootMargin: "0px 0px -30px 0px"
-          }
-
-        );
-
-
-      revealElements.forEach(
-        (element) => {
-
-          observer.observe(
-            element
-          );
-
-        }
-      );
-
-    } else {
-
-      revealElements.forEach(
-        (element) => {
-
-          element
-            .classList
-            .add("visible");
-
-        }
-      );
-
+      if (remember) localStorage.setItem("secondWindLanguage", language);
     }
 
+    const savedLanguage = localStorage.getItem("secondWindLanguage");
+    applyLanguage(supportedLanguages.includes(savedLanguage) ? savedLanguage : detectBrowserLanguage());
 
-    const form =
-      document.getElementById(
-        "inquiry-form"
-      );
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang, true));
+    });
 
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    const formStatus =
-      document.getElementById(
-        "form-status"
-      );
-
-
-    const submitButton =
-      form.querySelector(
-        'button[type="submit"]'
-      );
-
-
-    form.addEventListener(
-      "submit",
-      async (event) => {
-
-        event.preventDefault();
-
-
-        const language =
-          document.documentElement.lang
-            .startsWith("zh")
-            ? "zh-Hant"
-            : "en";
-
-
-        formStatus.textContent = "";
-        formStatus.className = "form-status";
-
-
-        const originalText =
-          translations[language].formSubmit;
-
-
-        submitButton.disabled = true;
-
-
-        submitButton.textContent =
-          language === "zh-Hant"
-            ? "傳送中…"
-            : "Sending…";
-
-
-        try {
-
-          const response =
-            await fetch(
-              form.action,
-              {
-                method: form.method,
-                body: new FormData(form),
-                headers: {
-                  Accept: "application/json"
-                }
-              }
-            );
-
-
-          if (response.ok) {
-
-            formStatus.textContent =
-              language === "zh-Hant"
-                ? "謝謝。您的查詢已收到，我們會以保密方式與您聯絡。"
-                : "Thank you. Your inquiry has been received and will be handled confidentially.";
-
-
-            formStatus
-              .classList
-              .add("success");
-
-
-            form.reset();
-
-          } else {
-
-            formStatus.textContent =
-              language === "zh-Hant"
-                ? "暫時未能提交。請檢查資料後再試一次。"
-                : "We could not submit your inquiry. Please check the form and try again.";
-
-
-            formStatus
-              .classList
-              .add("error");
-
+    const revealElements = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
           }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
 
-        } catch (error) {
+      revealElements.forEach(el => observer.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add("visible"));
+    }
 
-          formStatus.textContent =
-            language === "zh-Hant"
-              ? "連線出現問題，請稍後再試。"
-              : "There was a connection problem. Please try again.";
+    const form = document.getElementById("inquiry-form");
+    const formStatus = document.getElementById("form-status");
+    const submitButton = form.querySelector('button[type="submit"]');
 
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const language = document.documentElement.lang.startsWith("zh") ? "zh-Hant" : "en";
+      const originalText = translations[language].formSubmit;
 
-          formStatus
-            .classList
-            .add("error");
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+      submitButton.disabled = true;
+      submitButton.textContent = language === "zh-Hant" ? "傳送中…" : "Sending…";
 
-        } finally {
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
 
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-
+        if (response.ok) {
+          formStatus.textContent = language === "zh-Hant"
+            ? "謝謝。您的查詢已收到，我們會以保密方式與您聯絡。"
+            : "Thank you. Your inquiry has been received and will be handled confidentially.";
+          formStatus.classList.add("success");
+          form.reset();
+        } else {
+          formStatus.textContent = language === "zh-Hant"
+            ? "暫時未能提交。請檢查資料後再試一次。"
+            : "We could not submit your inquiry. Please check the form and try again.";
+          formStatus.classList.add("error");
         }
-
+      } catch (error) {
+        formStatus.textContent = language === "zh-Hant"
+          ? "連線出現問題，請稍後再試。"
+          : "There was a connection problem. Please try again.";
+        formStatus.classList.add("error");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
       }
-    );
+    });
   </script>
-
 </body>
 </html>
