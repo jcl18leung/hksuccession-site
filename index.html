@@ -306,12 +306,17 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: .82fr 1.18fr;
-      gap: 68px;
+      grid-template-columns: 1fr 1fr;
+      gap: 58px;
       align-items: center;
     }
     .principle-wrap .eyebrow { color: #ead2b6; }
-    .principle-wrap h2 { color: #fff9f3; max-width: 650px; }
+    .principle-wrap h2 {
+      color: #fff9f3;
+      max-width: 610px;
+      font-size: clamp(2.15rem, 3.8vw, 3.35rem);
+      line-height: 1.14;
+    }
     .principle-copy p { color: rgba(255,249,243,.82); }
     .principle-copy p + p { margin-top: 18px; }
     .principle-bottomline {
@@ -325,43 +330,52 @@
     }
     .baton-visual {
       margin-top: 34px;
-      display: grid;
-      gap: 14px;
-      max-width: 470px;
+      max-width: 500px;
     }
     .baton-line {
       display: grid;
-      grid-template-columns: 1fr 54px 1fr;
+      grid-template-columns: minmax(0, 1fr) 46px minmax(0, 1fr);
+      gap: 14px;
       align-items: center;
     }
     .baton-pill {
-      min-height: 44px;
+      min-height: 58px;
       display: flex;
       align-items: center;
-      padding: 0 18px;
+      justify-content: center;
+      padding: 10px 20px;
       border-radius: 999px;
       font-size: .84rem;
       font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
       letter-spacing: .02em;
       border: 1px solid rgba(255,255,255,.18);
     }
-    .baton-pill.left { justify-content: flex-end; background: rgba(255,255,255,.10); color: #fff9f3; }
+    .baton-pill.left { background: rgba(255,255,255,.10); color: #fff9f3; }
     .baton-pill.right { background: rgba(237,210,180,.16); color: #fff9f3; }
     .baton-link {
-      position: relative;
-      height: 2px;
-      background: rgba(255,255,255,.38);
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      justify-self: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.24);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,249,243,.9);
     }
     .baton-link::after {
-      content: "";
-      position: absolute;
-      right: -1px;
-      top: 50%;
-      width: 7px;
-      height: 7px;
-      border-top: 2px solid rgba(255,255,255,.7);
-      border-right: 2px solid rgba(255,255,255,.7);
-      transform: translateY(-50%) rotate(45deg);
+      content: "→";
+      display: block;
+      position: static;
+      width: auto;
+      height: auto;
+      border: 0;
+      transform: none;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1;
     }
     .principle-points {
       display: grid;
@@ -506,8 +520,10 @@
       .hero { padding: 62px 0 72px; }
       .principle-wrap { padding: 34px 24px; border-radius: 22px; }
       .principle-points { grid-template-columns: 1fr; }
-      .baton-line { grid-template-columns: 1fr 38px 1fr; }
-      .baton-pill { min-height: 40px; padding: 0 12px; font-size: .78rem; }
+      .baton-line { grid-template-columns: 1fr; gap: 10px; }
+      .baton-pill { min-height: 50px; padding: 10px 16px; font-size: .8rem; }
+      .baton-link { width: 40px; height: 40px; }
+      .baton-link::after { content: "↓"; }
       .hero-actions { display: grid; }
       .hero-actions .btn { width: 100%; }
       .hero-photo img { height: 400px; }
@@ -1350,7 +1366,7 @@
         value4Title: "Supply & delivery",
         value4Body: "Supplier terms, leases, equipment and delivery capability are part of the operating base a successor is really taking on.",
         principleEyebrow: "OUR HANDOVER PRINCIPLE",
-        principleTitle: "Taking it on properly matters more than simply buying it.",
+        principleTitle: "Carrying it forward matters more than simply buying it.",
         batonFrom: "Built over years",
         batonTo: "Carried forward",
         principlePoint1: "Protect the name first",
