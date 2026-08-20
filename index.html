@@ -271,6 +271,114 @@
     }
     .value-card p { font-size: .9rem; }
 
+
+    /* Stewardship principle */
+    .principle-wrap {
+      position: relative;
+      overflow: hidden;
+      padding: 64px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--wine-dark) 0%, var(--wine) 56%, #95645d 100%);
+      box-shadow: 0 18px 44px rgba(83,62,46,.12);
+      color: #fff9f3;
+    }
+    .principle-wrap::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      right: -130px;
+      top: -150px;
+      background: rgba(255,255,255,.055);
+    }
+    .principle-wrap::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      left: -80px;
+      bottom: -130px;
+      background: rgba(255,255,255,.04);
+    }
+    .principle-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 68px;
+      align-items: center;
+    }
+    .principle-wrap .eyebrow { color: #ead2b6; }
+    .principle-wrap h2 { color: #fff9f3; max-width: 650px; }
+    .principle-copy p { color: rgba(255,249,243,.82); }
+    .principle-copy p + p { margin-top: 18px; }
+    .principle-bottomline {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.22);
+      color: #fff9f3;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+    .baton-visual {
+      margin-top: 34px;
+      display: grid;
+      gap: 14px;
+      max-width: 470px;
+    }
+    .baton-line {
+      display: grid;
+      grid-template-columns: 1fr 54px 1fr;
+      align-items: center;
+    }
+    .baton-pill {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .baton-pill.left { justify-content: flex-end; background: rgba(255,255,255,.10); color: #fff9f3; }
+    .baton-pill.right { background: rgba(237,210,180,.16); color: #fff9f3; }
+    .baton-link {
+      position: relative;
+      height: 2px;
+      background: rgba(255,255,255,.38);
+    }
+    .baton-link::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-top: 2px solid rgba(255,255,255,.7);
+      border-right: 2px solid rgba(255,255,255,.7);
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .principle-points {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .principle-point {
+      padding: 14px 15px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid rgba(255,255,255,.13);
+      color: rgba(255,249,243,.9);
+      font-size: .83rem;
+      text-align: center;
+    }
+
     /* Process */
     .process-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 66px; align-items: start; }
     .process-side { position: sticky; top: 108px; }
@@ -372,6 +480,8 @@
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .hero-grid, .story-grid, .value-grid, .process-grid, .advisory-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .principle-grid { grid-template-columns: 1fr; gap: 38px; }
+      .principle-wrap { padding: 46px; }
       .process-side { position: static; }
       .criteria-grid, .value-list { grid-template-columns: 1fr; }
       .trust-row, .micro-stats, .concerns-grid { grid-template-columns: 1fr; }
@@ -394,6 +504,10 @@
       h1 { font-size: clamp(2.7rem, 12.4vw, 4.3rem); }
       h2 { font-size: clamp(2rem, 8.8vw, 2.9rem); }
       .hero { padding: 62px 0 72px; }
+      .principle-wrap { padding: 34px 24px; border-radius: 22px; }
+      .principle-points { grid-template-columns: 1fr; }
+      .baton-line { grid-template-columns: 1fr 38px 1fr; }
+      .baton-pill { min-height: 40px; padding: 0 12px; font-size: .78rem; }
       .hero-actions { display: grid; }
       .hero-actions .btn { width: 100%; }
       .hero-photo img { height: 400px; }
@@ -812,6 +926,40 @@
       </div>
     </section>
 
+
+    <section class="section" id="principle">
+      <div class="container">
+        <div class="principle-wrap reveal">
+          <div class="principle-grid">
+            <div>
+              <span class="eyebrow" data-i18n="principleEyebrow">我們的交棒原則</span>
+              <h2 data-i18n="principleTitle">接得住，比買得到更重要。</h2>
+
+              <div class="baton-visual" aria-hidden="true">
+                <div class="baton-line">
+                  <div class="baton-pill left" data-i18n="batonFrom">多年建立</div>
+                  <div class="baton-link"></div>
+                  <div class="baton-pill right" data-i18n="batonTo">穩穩接上</div>
+                </div>
+              </div>
+
+              <div class="principle-points">
+                <div class="principle-point" data-i18n="principlePoint1">先守住招牌</div>
+                <div class="principle-point" data-i18n="principlePoint2">先穩住團隊</div>
+                <div class="principle-point" data-i18n="principlePoint3">先接住客戶</div>
+              </div>
+            </div>
+
+            <div class="principle-copy">
+              <p class="lead" data-i18n="principleP1">我們參與過收購，也做過接手後的營運，所以更明白：交棒最怕的，不是變，而是變得太快。</p>
+              <p data-i18n="principleP2">不是一接手就更名、換血、重做一切，而是先守住招牌、團隊與客戶關係，再讓新的掌舵人慢慢接上。</p>
+              <div class="principle-bottomline" data-i18n="principleBottomline">讓您的生意平穩落地，是 Second Wind 不會退讓的底線。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="process">
       <div class="container process-grid">
         <div class="process-side reveal">
@@ -1093,6 +1241,16 @@
         value3Body: "哪些客戶關係屬於公司，哪些仍然主要建基於老闆本人。",
         value4Title: "供應與交付",
         value4Body: "供應商條件、租約、設備與交付能力，都是承接者真正會看重的基本盤。",
+        principleEyebrow: "我們的交棒原則",
+        principleTitle: "接得住，比買得到更重要。",
+        batonFrom: "多年建立",
+        batonTo: "穩穩接上",
+        principlePoint1: "先守住招牌",
+        principlePoint2: "先穩住團隊",
+        principlePoint3: "先接住客戶",
+        principleP1: "我們參與過收購，也做過接手後的營運，所以更明白：交棒最怕的，不是變，而是變得太快。",
+        principleP2: "不是一接手就更名、換血、重做一切，而是先守住招牌、團隊與客戶關係，再讓新的掌舵人慢慢接上。",
+        principleBottomline: "讓您的生意平穩落地，是 Second Wind 不會退讓的底線。",
         processEyebrow: "怎樣交這一棒",
         processTitle: "您繼續顧生意。整理和配對，我們來做。",
         processIntro: "不需要學一套併購術語，也不需要自己摸索應該準備什麼。我們把交棒前最難的部分，拆成清楚可行的幾步。",
@@ -1191,6 +1349,16 @@
         value3Body: "Which relationships belong to the company and which still depend mainly on the founder.",
         value4Title: "Supply & delivery",
         value4Body: "Supplier terms, leases, equipment and delivery capability are part of the operating base a successor is really taking on.",
+        principleEyebrow: "OUR HANDOVER PRINCIPLE",
+        principleTitle: "Taking it on properly matters more than simply buying it.",
+        batonFrom: "Built over years",
+        batonTo: "Carried forward",
+        principlePoint1: "Protect the name first",
+        principlePoint2: "Stabilise the team first",
+        principlePoint3: "Retain the customers first",
+        principleP1: "We have participated in acquisitions and operated businesses after the handover. That experience taught us that the biggest risk is not change itself, but changing too much, too quickly.",
+        principleP2: "The right successor should not arrive on day one determined to rename, replace and rebuild everything. First protect the reputation, stabilise the team and retain customer trust. Then let the next owner take the helm gradually.",
+        principleBottomline: "A steady landing for the business you built is one of Second Wind's non-negotiables.",
         processEyebrow: "HOW THE HANDOVER WORKS",
         processTitle: "You keep running the business. We handle the preparation and matching.",
         processIntro: "Owners do not need to learn a new language or guess what to prepare. We break the most difficult parts of the handover into clear, practical steps.",
