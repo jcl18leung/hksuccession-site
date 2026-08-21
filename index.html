@@ -1226,6 +1226,21 @@
               </div>
 
               <div class="field">
+                <label for="phone" data-i18n="formPhone">聯絡電話 / WhatsApp</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  required
+                  data-placeholder-zh="例如：9123 4567"
+                  data-placeholder-en="e.g. +852 9123 4567"
+                  placeholder="例如：9123 4567"
+                />
+              </div>
+
+              <div class="field">
                 <label for="message" data-i18n="formMessage">想談談什麼？</label>
                 <textarea id="message" name="message" required data-placeholder-zh="例如：公司做了 25 年，現時仍然穩定經營。我正在考慮未來幾年慢慢退下來，想了解交棒應如何安排。" data-placeholder-en="For example: I have run the business for 25 years and am considering stepping back over the next few years. I would like to understand how a proper handover should be arranged." placeholder="例如：公司做了 25 年，現時仍然穩定經營。我正在考慮未來幾年慢慢退下來，想了解交棒應如何安排。"></textarea>
               </div>
@@ -1418,6 +1433,7 @@
         formName: "您的稱呼",
         formCompany: "公司名稱",
         formEmail: "電郵",
+        formPhone: "聯絡電話 / WhatsApp",
         formMessage: "想談談什麼？",
         formSubmit: "提交保密查詢",
         formNote: "提交內容只用作初步聯絡。未經同意，不會向潛在承接方或第三方披露公司資料。",
@@ -1526,6 +1542,7 @@
         formName: "Your name",
         formCompany: "Company",
         formEmail: "Email",
+        formPhone: "Phone / WhatsApp",
         formMessage: "What would you like to discuss?",
         formSubmit: "Send Confidential Inquiry",
         formNote: "Information submitted here is used only for the initial conversation. Company information will not be shared with a potential successor or any third party without permission.",
